@@ -9,7 +9,7 @@ public class Cd {
 	private String nombre;
 	private LocalDate date;
 	
-	// mirar date
+	// mirar date2
 	
 	public Cd (String nombre,int año,int mes,int dia) {
 		date = LocalDate.of(año, mes, dia);
