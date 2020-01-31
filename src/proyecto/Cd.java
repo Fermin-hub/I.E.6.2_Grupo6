@@ -11,8 +11,8 @@ public class Cd {
 	
 	// mirar date2
 	
-	public Cd (String nombre,int año,int mes,int dia) {
-		date = LocalDate.of(año, mes, dia);
+	public Cd (String nombre,int anio,int mes,int dia) {
+		date = LocalDate.of(anio, mes, dia);
 		this.nombre=nombre;
 	}
 
