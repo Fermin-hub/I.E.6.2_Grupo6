@@ -6,10 +6,13 @@ public class Cd {
 
 	private String nombre;
 	private LocalDate date;
+	private static int contador= 0;
 
 	public Cd(String nombre, int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
 		this.nombre = nombre;
+		contador++;
+		
 
 	}
 
@@ -27,6 +30,11 @@ public class Cd {
 
 	public void setDate(LocalDate date) {
 		this.date = date;
+	}
+	
+	
+	public static int getContador() {
+		return contador;
 	}
 
 	@Override

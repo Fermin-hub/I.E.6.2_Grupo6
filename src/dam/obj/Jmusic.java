@@ -82,7 +82,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println(r.toString());
+			System.out.println(r.toString()+Cd.getContador()+" Discos:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
