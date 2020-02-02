@@ -1,17 +1,16 @@
-package proyecto;
+package dam.obj;
 
 import java.time.LocalDate;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Cd {
 
 	private String nombre;
 	private LocalDate date;
-	
-	public Cd (String nombre,int año,int mes,int dia) {
-		date = LocalDate.of(año, mes, dia);
-		this.nombre=nombre;
+
+	public Cd(String nombre, int anio, int mes, int dia) {
+		this.date = LocalDate.of(anio, mes, dia);
+		this.nombre = nombre;
+
 	}
 
 	public String getNombre() {
@@ -29,7 +28,10 @@ public class Cd {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Cd [getNombre()=" + getNombre() + ", getDate()=" + getDate() + "]";
+	}
 
 }
