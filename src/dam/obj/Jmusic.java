@@ -28,7 +28,7 @@ public class Jmusic {
 				deleteRepresentante();
 				break;
 			case 4:
-				
+				listarBandas();
 				break;
 			case 5:
 
@@ -106,5 +106,16 @@ public class Jmusic {
 	}
 	
 
+	public static void listarBandas() { // metodo para listar las bandas registradas con sus discos
 
+		for (Representante r : listaRepresentante) {
+
+			System.out.println("Grupo musical: " + r.getGrupo()+" con un total de "+Cd.getContador()+" Discos:");
+			for (Cd cd : r.getGrupo().getListaCd()) {
+
+				System.out.println(cd.toString());
+			}
+
+		}
+	}
 }
