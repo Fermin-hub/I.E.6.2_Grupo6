@@ -6,13 +6,10 @@ public class Cd {
 
 	private String nombre;
 	private LocalDate date;
-	
 
 	public Cd(String nombre, int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
 		this.nombre = nombre;
-		
-		
 
 	}
 
@@ -31,12 +28,10 @@ public class Cd {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	
-
 
 	@Override
 	public String toString() {
-		return getNombre() + " Cuyo CD fue lanzado en "+ getDate();
+		return getNombre() + " Cuyo CD fue lanzado en " + getDate();
 	}
 
 }

@@ -14,7 +14,7 @@ public class Jmusic {
 		int opcion;
 		do {
 			opcion = Integer.parseInt(JOptionPane.showInputDialog(
-					"JMusic Entertainment\n====================\n1. Agregar Representante \n2. Ver la lista de Representantes \n3. Eliminar Representante \n4. null - Grupo\n5. null \n0. Salir del programa\n\nIntroduzca una opcion: "));
+					"JMusic Entertainment\n====================\n1. Agregar Representante \n2. Ver la lista de Representantes \n3. Eliminar Representante \n4. Ver lista de Bandas Musicales \n5. null \n0. Salir del programa\n\nIntroduzca una opcion: "));
 
 			switch (opcion) {
 			case 1:
@@ -84,7 +84,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println(r.toString()+" Discos:");
+			System.out.println(r.toString());
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
@@ -110,7 +110,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println("Grupo musical: " + r.getGrupo()+" Discos:");
+			System.out.println("Grupo musical: " + r.getGrupo());
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
