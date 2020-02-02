@@ -84,7 +84,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println(r.toString()+Cd.getContador()+" Discos:");
+			System.out.println(r.toString()+" Discos:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
@@ -110,7 +110,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println("Grupo musical: " + r.getGrupo()+" con un total de "+Cd.getContador()+" Discos:");
+			System.out.println("Grupo musical: " + r.getGrupo()+" Discos:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
