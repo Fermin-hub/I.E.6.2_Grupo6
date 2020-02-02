@@ -15,7 +15,7 @@ public class Jmusic {
 		int opcion;
 		do {
 			opcion = Integer.parseInt(JOptionPane.showInputDialog(
-					"JMusic Entertainment\n====================\n1. Nuevo Grupo - Grupo\n2. Buscar Representante\n3. Buscar Discografía Grupo\n4. Listar Representante - Grupo\n5. Borrar Representante - Grupo\n0. Salir del programa\n\nIntroduzca una opción: "));
+					"JMusic Entertainment\n====================\n1. Agregar Representante \n2. Ver la lista de Representantes \n3. Eliminar Representante \n4. null - Grupo\n5. null \n0. Salir del programa\n\nIntroduzca una opcion: "));
 
 			switch (opcion) {
 			case 1:
@@ -29,7 +29,7 @@ public class Jmusic {
 				deleteRepresentante();
 				break;
 			case 4:
-
+				
 				break;
 			case 5:
 
@@ -98,9 +98,11 @@ public class Jmusic {
 		for (Representante r : listaRepresentante) {
 			if (r.getId() == id) {
 				listaRepresentante.remove(r);
-				System.out.println("El reprersentante ha siado eliminado");
+				System.out.println("El representante ha sido eliminado");
 			}
 		}
 	}
+	
+
 
 }

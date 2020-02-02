@@ -43,7 +43,7 @@ public class Grupo {
 
 	@Override
 	public String toString() {
-		return "Grupo [getNombre()=" + getNombre() + ", getPais()=" + getPais() + "]";
+		return getNombre();
 	}
 
 }

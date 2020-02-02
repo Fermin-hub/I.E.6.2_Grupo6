@@ -70,8 +70,7 @@ public class Representante {
 
 	@Override
 	public String toString() {
-		return "Representante [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", id=" + id
-				+ ", sueldo=" + sueldo + ", representando=" + representando + ", grupo=" + grupo + "]";
+		return "ID: " +id + " - El Manager " + nombre +" "+ apellido + " representa al grupo musical " + grupo + "."+ " Su discografia esta formada por ";
 	}
 
 }
