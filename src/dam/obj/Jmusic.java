@@ -1,7 +1,6 @@
 package dam.obj;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +41,8 @@ public class Jmusic {
 				break;
 			}
 		} while (opcion < 6);
-
+		
+		scanner.close();
 	}
 
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>();
@@ -70,12 +70,14 @@ public class Jmusic {
 						.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				listaCd.add(cd);
+				
 			}
+			
 		} while (opcion2 == 1);
 		Grupo g = new Grupo(nombreGrupo, pais, listaCd);
 		Representante r = new Representante(nombre, apellido, edad, sueldo, g);
 		listaRepresentante.add(r);
-
+		
 	}
 
 	public static void listarRG() {

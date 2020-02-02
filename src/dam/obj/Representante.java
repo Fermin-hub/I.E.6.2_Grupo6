@@ -6,7 +6,6 @@ public class Representante {
 	private int edad, id;
 	private static int id2 = 100;
 	private float sueldo;
-	private boolean representando;
 	private Grupo grupo;
 
 	public Representante(String nombre, String apellido, int edad, float sueldo, Grupo grupo) {
@@ -17,7 +16,7 @@ public class Representante {
 		this.grupo = grupo;
 		id2++;
 		id = id2;
-		representando = true;
+		
 	}
 
 	public String getNombre() {
