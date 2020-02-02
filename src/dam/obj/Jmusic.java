@@ -26,7 +26,7 @@ public class Jmusic {
 				listarRG();
 				break;
 			case 3:
-
+				deleteRepresentante();
 				break;
 			case 4:
 
@@ -87,19 +87,20 @@ public class Jmusic {
 
 				System.out.println(cd.toString());
 			}
-			
+
 		}
 	}
-	
+
 	public static void deleteRepresentante() {
-		int id = Integer.parseInt(
-				JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
-			
-			for(Representante r : listaRepresentante) {
-				if (r.getId()==id) {
-				    listaRepresentante.remove(r);
-				}
+		int id = Integer
+				.parseInt(JOptionPane.showInputDialog("Por favor, diga la id del representante que quiere borrar"));
+
+		for (Representante r : listaRepresentante) {
+			if (r.getId() == id) {
+				listaRepresentante.remove(r);
+				System.out.println("El reprersentante ha siado eliminado");
 			}
 		}
+	}
 
 }
