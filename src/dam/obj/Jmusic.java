@@ -37,7 +37,7 @@ public class Jmusic {
 				listarBandas();
 				break;
 			case 5:
-
+				modificarRepresentante();
 				break;
 			case 6:
 
@@ -122,6 +122,12 @@ public class Jmusic {
 				System.out.println(cd.toString());
 			}
 
+		}
+	}
+	
+	public static void modificarRepresentante() {
+		
+		for (Representante r : modificarRepresentante()) {
 		}
 	}
 }
