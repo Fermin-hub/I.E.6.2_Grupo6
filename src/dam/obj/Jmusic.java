@@ -6,10 +6,11 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
-* Clase Representante
-* @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
-* @version: 27/12/2019
-*/
+ * Clase Representante
+ * 
+ * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
+ * @version: 27/12/2019
+ */
 
 public class Jmusic {
 
@@ -46,13 +47,14 @@ public class Jmusic {
 				break;
 			}
 		} while (opcion < 6);
-		
+
 		scanner.close();
 	}
 
-	private static List<Representante> listaRepresentante = new ArrayList<Representante>();
+	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
 
-	public static void createRepresentante() {
+	public static void createRepresentante() { // Metodo para introducir representante con sus datos, el grupo que
+												// representa y la discografia del grupo.
 		int opcion2;
 		String nombre = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Representante");
 		String apellido = JOptionPane.showInputDialog("Por favor, introduzca los apellidos del Representante");
@@ -75,17 +77,17 @@ public class Jmusic {
 						.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				listaCd.add(cd);
-				
+
 			}
-			
+
 		} while (opcion2 == 1);
 		Grupo g = new Grupo(nombreGrupo, pais, listaCd);
 		Representante r = new Representante(nombre, apellido, edad, sueldo, g);
 		listaRepresentante.add(r);
-		
+
 	}
 
-	public static void listarRG() {
+	public static void listarRG() { // Metodo para extraer solo los representantes.
 
 		for (Representante r : listaRepresentante) {
 
@@ -98,7 +100,7 @@ public class Jmusic {
 		}
 	}
 
-	public static void deleteRepresentante() {
+	public static void deleteRepresentante() { // Metodo para eliminar los representantes.
 		int id = Integer
 				.parseInt(JOptionPane.showInputDialog("Por favor, diga la id del representante que desea borrar"));
 
@@ -109,13 +111,12 @@ public class Jmusic {
 			}
 		}
 	}
-	
 
 	public static void listarBandas() { // metodo para listar las bandas registradas con sus discos
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println("Grupo musical: " + r.getGrupo()+".\n Su discografia esta formada por:");
+			System.out.println("Grupo musical: " + r.getGrupo() + ".\nSu discografia esta formada por:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());

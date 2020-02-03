@@ -8,15 +8,25 @@ public class Representante {
 	private float sueldo;
 	private Grupo grupo;
 
+	/**
+	 * 
+	 * @param nombre   del representante
+	 * @param apellido del representante
+	 * @param edad     del representante
+	 * @param sueldo   del representante
+	 * @param grupo    Objeto Grupo
+	 */
 	public Representante(String nombre, String apellido, int edad, float sueldo, Grupo grupo) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
 		this.sueldo = sueldo;
 		this.grupo = grupo;
-		id2++;
-		id = id2;
-		
+		id2++; // contador que se inicializa en 100 y que sirve para sacar la id de cada
+				// representante.
+		id = id2; // id del representante que sera igualada al contador cuando el objeto sea
+					// creado.
+
 	}
 
 	public String getNombre() {
@@ -69,7 +79,8 @@ public class Representante {
 
 	@Override
 	public String toString() {
-		return "ID: " +id + " - El Manager " + nombre +" "+ apellido + " representa al grupo musical " + grupo + "."+ " Su discografia esta formada por: ";
+		return "ID: " + id + " - El Manager " + nombre + " " + apellido + " representa al grupo musical " + grupo + "."
+				+ " Su discografia esta formada por: ";
 	}
 
 }
