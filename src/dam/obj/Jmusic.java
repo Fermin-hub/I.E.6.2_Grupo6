@@ -110,7 +110,8 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println("Grupo musical: " + r.getGrupo());
+			System.out.println("Grupo musical: " + r.getGrupo()
+			+". Su discografia esta formada por:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
