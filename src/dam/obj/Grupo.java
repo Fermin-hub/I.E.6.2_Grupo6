@@ -33,7 +33,7 @@ public class Grupo {
 		this.pais = pais;
 	}
 
-	public List<Cd> getListaCd() {
+	public List<Cd> getListaCd() { // ordenamos con shorted ya que nos piden que sea por nombre.
 		return listaCd.stream().sorted(Comparator.comparing(Cd::getNombre)).collect(Collectors.toList());
 	}
 

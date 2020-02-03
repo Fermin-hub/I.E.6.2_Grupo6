@@ -3,8 +3,13 @@ package dam.obj;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
+
+/**
+* Clase Representante
+* @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
+* @version: 27/12/2019
+*/
 
 public class Jmusic {
 
@@ -95,12 +100,12 @@ public class Jmusic {
 
 	public static void deleteRepresentante() {
 		int id = Integer
-				.parseInt(JOptionPane.showInputDialog("Por favor, diga la id del representante que quiere borrar"));
+				.parseInt(JOptionPane.showInputDialog("Por favor, diga la id del representante que desea borrar"));
 
 		for (Representante r : listaRepresentante) {
 			if (r.getId() == id) {
 				listaRepresentante.remove(r);
-				System.out.println("El representante ha sido eliminado");
+				System.out.println("El representante ha sido eliminado satisfactoriamente");
 			}
 		}
 	}
@@ -110,8 +115,7 @@ public class Jmusic {
 
 		for (Representante r : listaRepresentante) {
 
-			System.out.println("Grupo musical: " + r.getGrupo()
-			+". Su discografia esta formada por:");
+			System.out.println("Grupo musical: " + r.getGrupo()+".\n Su discografia esta formada por:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 
 				System.out.println(cd.toString());
