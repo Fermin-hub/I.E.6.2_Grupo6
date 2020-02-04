@@ -32,10 +32,11 @@ public class Jmusic {
 				listarBandas();
 				break;
 			case 4:
-				deleteRepresentante();
+				//modificarRepresentante();
+				
 				break;
 			case 5:
-				//modificarRepresentante();
+				deleteRepresentante();
 				break;
 			default:
 				System.out.println("Guardando en la base de datos...\n\nGuardado");
@@ -110,11 +111,14 @@ public class Jmusic {
 
 	public static void deleteRepresentante() throws IOException { // Metodo para eliminar los representantes.
 		listarRG();
-		System.out.println("¿Qué representante desea borrar?");
+		System.out.println("Introduzca la ID del representante a borrar");
 		int borrar = entrada.controlaInt();
-		borrar = borrar-1;
-		listaRepresentante.remove(borrar);
-		JOptionPane.showMessageDialog(null, "El grupo "+listaRepresentante.get(borrar-1).getNombre()+" ha sido borrado satisfactoriamente");
+		for (int i = 0; i < listaRepresentante.size(); i++) {
+			if (borrar==listaRepresentante.get(i).getId()) {
+				listaRepresentante.remove(i);
+				System.out.println("El Representante "+listaRepresentante.get(i).getNombre()+" ha sido borrado satisfactoriamente");
+			}
+		}
 		/*
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Por favor, escriba la id del representante que desea borrar"));
 		for (Representante r : listaRepresentante) {
