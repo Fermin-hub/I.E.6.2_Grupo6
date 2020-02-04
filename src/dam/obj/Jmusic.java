@@ -80,7 +80,7 @@ public class Jmusic {
 				int anodisco = 0,dia = 0,mes = 0;
 				do {
 					try {
-				anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
+				anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el año de publicacion del disco"));
 				dia = (int) (Math.random() * 10) + 1;
 				mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
 				b2 = false;
@@ -128,14 +128,15 @@ public class Jmusic {
 		}*/
 	}
 
-	public static void listarBandas() { // metodo para listar las bandas registradas con sus discos
+	public static void listarBandas() throws IOException { // metodo para listar las bandas registradas con sus discos
 		if (listaRepresentante.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
 		}else {
 			for (int i = 0; i < listaRepresentante.size(); i++) {
 				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());		
 			}
-		int banda = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la id del representante"));	
+		System.out.println("Introduzca la ide del representante");	
+		int banda = entrada.controlaInt();
 		for (Representante r : listaRepresentante) {
 			System.out.println("Grupo musical: " + r.getGrupo() + ".\nSu discografia esta formada por:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
