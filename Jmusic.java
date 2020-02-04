@@ -49,19 +49,40 @@ public class Jmusic {
 
 	public static void createRepresentante() { // Metodo para introducir representante con sus datos, el grupo que
 		int opcion2;
+		boolean b = true;
+		boolean b2 = true;
+		int edad = 0;
+		float sueldo = 0;
 		String nombre = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Representante");
 		String apellido = JOptionPane.showInputDialog("Por favor, introduzca los apellidos del Representante");
-		int edad = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca la edad del Representante"));
-		float sueldo = Float.parseFloat(JOptionPane.showInputDialog("Por favor, introduzca el sueldo del Representante"));
+		do {
+			try {
+		edad = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca la edad del Representante"));
+		sueldo = Float.parseFloat(JOptionPane.showInputDialog("Por favor, introduzca el sueldo del Representante"));
+		b = false;
+			}catch (Exception Ex) {
+			b = true;	
+			JOptionPane.showMessageDialog(null, "Número introducido erróneo");
+			}
+		}while (b);
 		String nombreGrupo = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Grupo");
 		String pais = JOptionPane.showInputDialog("Por favor, introduzca el pais del Grupo");
 		do {
 			opcion2 = Integer.parseInt(JOptionPane.showInputDialog("JMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir"));
 			if (opcion2 == 1) {
 				String nombrecd = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Disco");
-				int anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
-				int dia = (int) (Math.random() * 10) + 1;
-				int mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
+				int anodisco = 0,dia = 0,mes = 0;
+				do {
+					try {
+				anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
+				dia = (int) (Math.random() * 10) + 1;
+				mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
+				b2 = false;
+					}catch (Exception Ex) {
+					b2 = true;	
+					JOptionPane.showMessageDialog(null, "Número introducido erróneo");
+					}
+				}while (b2);
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				listaCd.add(cd);
 			}
