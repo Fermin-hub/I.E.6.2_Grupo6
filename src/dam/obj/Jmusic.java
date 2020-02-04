@@ -32,16 +32,11 @@ public class Jmusic {
 				listarBandas();
 				break;
 			case 4:
-				
-				break;
-			case 5:
 				deleteRepresentante();
 				break;
-			case 6:
+			case 5:
 				//modificarRepresentante();
-
 				break;
-
 			default:
 				System.out.println("Guardando en la base de datos...\n\nGuardado");
 				break;
