@@ -131,6 +131,6 @@ public class Representante {
  */
 	@Override
 	public String toString() {
-		return "Representante [nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", sueldo=" + sueldo + "]";
+		return "Representante Nombre= " + nombre + ", Apellidos= " + apellido + ", edad= " + edad + "años, sueldo= " + sueldo + " euros ]";
 	}	
 }

@@ -41,7 +41,7 @@ public class Grupo implements Comparable<Cd>{
 	}
 
 	public Cd getCd() {
-		return cd;
+		return treeMap.get(nombre);
 	}
 
 	public void setCd(Cd cd) {
@@ -61,7 +61,15 @@ public class Grupo implements Comparable<Cd>{
         }
 	}
 
-	public void setTreeMap(String nombre2, Cd cd2) {
-		treeMap.put(nombre2, cd2);	
+	public void setTreeMap(String nombre, Cd cd) {
+		treeMap.put(nombre, cd);	
 	}
+
+	@Override
+	public String toString() {
+		return "Grupo "+ getNombre() +" CD: ";// +cd.getNombre();
+		//return "Grupo [cd=" + cd + ", getNombre()=" + getNombre() + "]";
+	}
+	
+
 }

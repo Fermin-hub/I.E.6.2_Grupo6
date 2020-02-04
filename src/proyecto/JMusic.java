@@ -1,8 +1,6 @@
 package proyecto;
 
 import java.util.*;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.html.HTMLDocument.Iterator;
@@ -12,11 +10,9 @@ public class JMusic {
 
 	public static void main(String[] args) {
 		
-		int opcion;
 		do {
-		opcion = Integer.parseInt(JOptionPane.showInputDialog("JMusic Entertainment\n====================\n1. Nuevo Representante - Grupo\n2. Buscar Representante\n3. Buscar Discografía Grupo\n4. Listar Representante - Grupo\n5. Borrar Representante - Grupo\n0. Salir del programa\n\nIntroduzca una opción: "));
 
-		switch (opcion) {
+		switch (Menu.menu()) {
 		case 1:
 			aniadirRepresentante ();
 			break;
@@ -39,12 +35,13 @@ public class JMusic {
 		default:
 			break;
 		}
-		}while (opcion<6);
+		}while (Menu.menu()<6);
 		
 		
 	}
 	//static ArrayList<Representante> arraylistrepresentante = new ArrayList<Representante>();
 	static Map<Integer, Representante> arraylistrepresentante = new HashMap<Integer, Representante>();
+	static Map<String, Cd> treeMap = new TreeMap<String, Cd>();
 
 	
 	public static void aniadirRepresentante () {
@@ -66,7 +63,8 @@ public class JMusic {
 					int dia = (int)(Math.random()*10)+1;
 					int mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicación del disco"));		
 		Cd cd = new Cd (nombrecd,anodisco,mes,dia);
-		g.setTreeMap(cd.getNombre(), cd);;
+		//treeMap.put(cd.getNombre(), cd);
+		g.setTreeMap(cd.getNombre(), cd);
 		}
 		}while (opcion2==1);	
 		arraylistrepresentante.put(r.getId(), r);
@@ -79,7 +77,7 @@ public class JMusic {
 		java.util.Iterator<Integer> it = arraylistrepresentante.keySet().iterator();
 		while(it.hasNext()){
 		  Integer key = it.next();
-		  System.out.println("Clave: " + key + " -> Valor: " + arraylistrepresentante.get(key));
+		  System.out.println("ID: " + key +" "+ arraylistrepresentante.get(key) +" "+ arraylistrepresentante.get(key).getGrupo());
 		}	
 	}
 	
