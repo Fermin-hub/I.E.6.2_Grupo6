@@ -43,6 +43,7 @@ public class Jmusic {
 				break;
 			}
 			sc.nextLine();
+			
 		} while (opcion != 0);
 	}
 
@@ -73,7 +74,7 @@ public class Jmusic {
 		String nombreGrupo = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Grupo");
 		String pais = JOptionPane.showInputDialog("Por favor, introduzca el pais del Grupo");
 		do {
-			opcion2 = Integer.parseInt(JOptionPane.showInputDialog("JMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir"));
+			opcion2 = Integer.parseInt(JOptionPane.showInputDialog("====================\nJMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir"));
 			if (opcion2 == 1) {
 				String nombrecd = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Disco");
 				int anodisco = 0,dia = 0,mes = 0;
@@ -106,6 +107,7 @@ public class Jmusic {
 				System.out.println(r.toString());
 				for (Cd cd : r.getGrupo().getListaCd()) {
 					System.out.println(cd.toString());
+					System.out.println();
 				}
 			}
 		}
@@ -119,6 +121,7 @@ public class Jmusic {
 			if (borrar==listaRepresentante.get(i).getId()) {
 				listaRepresentante.remove(i);
 				System.out.println("El Representante "+listaRepresentante.get(i).getNombre()+" ha sido borrado satisfactoriamente");
+				System.out.println();
 			}
 		}
 		/*
@@ -136,15 +139,18 @@ public class Jmusic {
 			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
 		}else {
 			for (int i = 0; i < listaRepresentante.size(); i++) {
-				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());		
+				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());
+				System.out.println();
 			}
 		
-		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda"));
+		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda que desea ver"));
 		
 		for (Representante r : listaRepresentante) {
 			if (r.getId() == id) {
+				System.out.println("La discografia de la banda solicitada esta compuesta por:");
 			for (Cd cd : r.getGrupo().getListaCd()) {
 				System.out.println(cd.toString());
+				System.out.println();
 			
 			}
 			}
