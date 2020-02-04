@@ -47,11 +47,12 @@ public class Jmusic {
 	}
 
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
-	private static List<Cd> listaCd = new ArrayList<Cd>();
+	// private static List<Cd> listaCd = new ArrayList<Cd>(); esta arraylist hacia que los cD no salieran bien.
 	private static Excepciones entrada = new Excepciones();
 
 	
 	public static void createRepresentante() { 
+		List<Cd> temp = new ArrayList<Cd>(); // arraylist temporal para introducir los CD
 		int opcion2;
 		boolean b = true;
 		boolean b2 = true;
@@ -88,12 +89,13 @@ public class Jmusic {
 					}
 				}while (b2);
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
-				listaCd.add(cd);
+				temp.add(cd);
 			}
 		} while (opcion2 == 1);
-		Grupo g = new Grupo(nombreGrupo, pais, listaCd);
+		Grupo g = new Grupo(nombreGrupo, pais, temp);
 		Representante r = new Representante(nombre, apellido, edad, sueldo, g);
 		listaRepresentante.add(r);
+		
 	}
 
 	public static void listarRG() { // Metodo para extraer solo los representantes.
@@ -136,21 +138,19 @@ public class Jmusic {
 			for (int i = 0; i < listaRepresentante.size(); i++) {
 				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());		
 			}
-		System.out.println("Introduzca la ide del representante");	
-		int banda = entrada.controlaInt();
+		
+		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda"));
+		
 		for (Representante r : listaRepresentante) {
-			System.out.println("Grupo musical: " + r.getGrupo() + ".\nSu discografia esta formada por:");
+			if (r.getId() == id) {
 			for (Cd cd : r.getGrupo().getListaCd()) {
 				System.out.println(cd.toString());
+			
 			}
-
+			}
 		}
 		}
 	}
 	
-	/*public static void modificarRepresentante() {
-		
-		for (Representante r : modificarRepresentante()) {
-		}
-	}*/
+
 }
