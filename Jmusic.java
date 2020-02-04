@@ -1,5 +1,6 @@
 package dam.obj;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,10 +15,10 @@ import javax.swing.JOptionPane;
 
 public class Jmusic {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		do {
-			switch (Menu.menu()) {
+			switch (Menu.menu2()) {
 			case 1:
 				createRepresentante();
 				break;
@@ -40,7 +41,7 @@ public class Jmusic {
 			default:
 				break;
 			}
-		} while (Menu.menu() < 6);
+		} while (Menu.menu2() < 6);
 
 	}
 
