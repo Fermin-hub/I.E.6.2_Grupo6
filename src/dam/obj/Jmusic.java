@@ -1,5 +1,6 @@
 package dam.obj;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,10 +15,13 @@ import javax.swing.JOptionPane;
 
 public class Jmusic {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		int opcion;
 		do {
-			switch (Menu.menu()) {
+			Menu.menu();
+			opcion = sc.nextInt();
+			switch (opcion) {
 			case 1:
 				createRepresentante();
 				break;
@@ -40,28 +44,51 @@ public class Jmusic {
 			default:
 				break;
 			}
-		} while (Menu.menu() < 6);
-
+			sc.nextLine();
+		} while (opcion != 0);
 	}
 
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
 	private static List<Cd> listaCd = new ArrayList<Cd>();
+	private static Excepciones entrada = new Excepciones();
 
-	public static void createRepresentante() { // Metodo para introducir representante con sus datos, el grupo que
+	
+	public static void createRepresentante() { 
 		int opcion2;
+		boolean b = true;
+		boolean b2 = true;
+		int edad = 0;
+		float sueldo = 0;
 		String nombre = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Representante");
 		String apellido = JOptionPane.showInputDialog("Por favor, introduzca los apellidos del Representante");
-		int edad = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca la edad del Representante"));
-		float sueldo = Float.parseFloat(JOptionPane.showInputDialog("Por favor, introduzca el sueldo del Representante"));
+		do {
+			try {
+		edad = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca la edad del Representante"));
+		sueldo = Float.parseFloat(JOptionPane.showInputDialog("Por favor, introduzca el sueldo del Representante"));
+		b = false;
+			}catch (Exception Ex) {
+			b = true;	
+			JOptionPane.showMessageDialog(null, "Número introducido erróneo");
+			}
+		}while (b);
 		String nombreGrupo = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Grupo");
 		String pais = JOptionPane.showInputDialog("Por favor, introduzca el pais del Grupo");
 		do {
 			opcion2 = Integer.parseInt(JOptionPane.showInputDialog("JMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir"));
 			if (opcion2 == 1) {
 				String nombrecd = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Disco");
-				int anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
-				int dia = (int) (Math.random() * 10) + 1;
-				int mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
+				int anodisco = 0,dia = 0,mes = 0;
+				do {
+					try {
+				anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el anio de publicacion del disco"));
+				dia = (int) (Math.random() * 10) + 1;
+				mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
+				b2 = false;
+					}catch (Exception Ex) {
+					b2 = true;	
+					JOptionPane.showMessageDialog(null, "Número introducido erróneo");
+					}
+				}while (b2);
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				listaCd.add(cd);
 			}
@@ -72,17 +99,22 @@ public class Jmusic {
 	}
 
 	public static void listarRG() { // Metodo para extraer solo los representantes.
-		for (Representante r : listaRepresentante) {
-			System.out.println(r.toString());
-			for (Cd cd : r.getGrupo().getListaCd()) {
-				System.out.println(cd.toString());
+		if (listaRepresentante.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
+		}else {
+			for (Representante r : listaRepresentante) {
+				System.out.println(r.toString());
+				for (Cd cd : r.getGrupo().getListaCd()) {
+					System.out.println(cd.toString());
+				}
 			}
 		}
 	}
 
-	public static void deleteRepresentante() { // Metodo para eliminar los representantes.
+	public static void deleteRepresentante() throws IOException { // Metodo para eliminar los representantes.
 		listarRG();
-		int borrar = Integer.parseInt(JOptionPane.showInputDialog("Qué representante desea borrar?"));
+		System.out.println("¿Qué representante desea borrar?");
+		int borrar = entrada.controlaInt();
 		borrar = borrar-1;
 		listaRepresentante.remove(borrar);
 		JOptionPane.showMessageDialog(null, "El grupo "+listaRepresentante.get(borrar-1).getNombre()+" ha sido borrado satisfactoriamente");
@@ -97,9 +129,12 @@ public class Jmusic {
 	}
 
 	public static void listarBandas() { // metodo para listar las bandas registradas con sus discos
-		for (int i = 0; i < listaRepresentante.size(); i++) {
-			System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());		
-		}
+		if (listaRepresentante.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
+		}else {
+			for (int i = 0; i < listaRepresentante.size(); i++) {
+				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());		
+			}
 		int banda = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la id del representante"));	
 		for (Representante r : listaRepresentante) {
 			System.out.println("Grupo musical: " + r.getGrupo() + ".\nSu discografia esta formada por:");
@@ -107,6 +142,7 @@ public class Jmusic {
 				System.out.println(cd.toString());
 			}
 
+		}
 		}
 	}
 	
