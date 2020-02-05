@@ -7,13 +7,6 @@ public class Cd {
 	private String nombre;
 	private LocalDate date;
 
-	/**
-	 * 
-	 * @param nombre del CD
-	 * @param anio   de la publicacion del CD
-	 * @param mes    de la publicacion del CD
-	 * @param dia    de la publicacion del CD
-	 */
 	public Cd(String nombre, int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
 		this.nombre = nombre;

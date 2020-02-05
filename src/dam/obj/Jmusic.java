@@ -5,19 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-
 /**
  * Clase Representante
- * 
  * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 27/12/2019
+ * @version: 05/02/2020
  */
-
 public class Jmusic {
 
 	public static void main(String[] args) throws IOException {
+/**
+ * Definimos variables
+ * @param sc Scanner
+ * @param opcion, Menu
+ */
 		Scanner sc = new Scanner(System.in);
 		int opcion;
+/**
+ * Switch case para la aplicación
+ */
 		do {
 			Menu.menu();
 			opcion = sc.nextInt();
@@ -32,8 +37,7 @@ public class Jmusic {
 				listarBandas();
 				break;
 			case 4:
-				//modificarRepresentante();
-				
+				//modificarRepresentante();			
 				break;
 			case 5:
 				deleteRepresentante();
@@ -46,12 +50,17 @@ public class Jmusic {
 			
 		} while (opcion != 0);
 	}
-
+/**
+ * Definimos variables estáticas
+ * @param listaRepresentante, arraylist de Representantes
+ * @param entrada, para leer excepciones
+ */
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
-	// private static List<Cd> listaCd = new ArrayList<Cd>(); esta arraylist hacia que los cD no salieran bien.
+	//private static List<Cd> listaCd = new ArrayList<Cd>(); esta arraylist hacia que los cD no salieran bien.
 	private static Excepciones entrada = new Excepciones();
-
-	
+/**
+ * Método para crear Representantes	
+ */
 	public static void createRepresentante() { 
 		List<Cd> temp = new ArrayList<Cd>(); // arraylist temporal para introducir los CD
 		int opcion2;
@@ -95,10 +104,11 @@ public class Jmusic {
 		} while (opcion2 == 1);
 		Grupo g = new Grupo(nombreGrupo, pais, temp);
 		Representante r = new Representante(nombre, apellido, edad, sueldo, g);
-		listaRepresentante.add(r);
-		
+		listaRepresentante.add(r);		
 	}
-
+/**
+ * Método para listar los Representantes y grupos
+ */
 	public static void listarRG() { // Metodo para extraer solo los representantes.
 		if (listaRepresentante.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
@@ -112,7 +122,10 @@ public class Jmusic {
 			}
 		}
 	}
-
+/**
+ * Método para borrar representantes
+ * @throws IOException
+ */
 	public static void deleteRepresentante() throws IOException { // Metodo para eliminar los representantes.
 		listarRG();
 		System.out.println("Introduzca la ID del representante a borrar");
@@ -133,7 +146,10 @@ public class Jmusic {
 			}
 		}*/
 	}
-
+/**
+ * Método para liistar los CD de la banda
+ * @throws IOException
+ */
 	public static void listarBandas() throws IOException { // metodo para listar las bandas registradas con sus discos
 		if (listaRepresentante.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
@@ -142,19 +158,18 @@ public class Jmusic {
 				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());
 				System.out.println();
 			}
-		
-		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda que desea ver"));
-		
-		for (Representante r : listaRepresentante) {
-			if (r.getId() == id) {
-				System.out.println("La discografia de la banda solicitada esta compuesta por:");
-			for (Cd cd : r.getGrupo().getListaCd()) {
-				System.out.println(cd.toString());
-				System.out.println();
-			
+			System.out.println("Introduzca la ID del representante para ver la discografia de la banda que representa");
+			int id = entrada.controlaInt();
+		//int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda que desea ver"));		
+			for (Representante r : listaRepresentante) {
+				if (r.getId() == id) {
+					System.out.println("La discografia de la banda solicitada esta compuesta por:");
+					for (Cd cd : r.getGrupo().getListaCd()) {
+						System.out.println(cd.toString());
+						System.out.println("");		
+					}
+				}
 			}
-			}
-		}
 		}
 	}
 	
