@@ -48,7 +48,7 @@ public class Jmusic {
 				listarBandas();
 				break;
 			case 4:
-				//modificarRepresentante();			
+				modificarRepresentante();			
 				break;
 			case 5:
 				deleteRepresentante();
@@ -179,23 +179,58 @@ public class Jmusic {
 		}
 	}
 	
-	public static void modificarRepresentante() throws IOException { //Metodo para modificar
+	public static void modificarRepresentante() throws IOException { //Metodo para modificar Representantes
 		
 		System.out.println("Lista para consultar el ID de cada representante, y modificar los datos necesarios");
-		listarRG();
-
+		listarRG(); //Lista los representantes con su ID
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el ID del representante a modificar:"));
 		for (Representante r : listaRepresentante) {
 			if (r.getId() == id) {
+				
+				//Modifica nombre
 				String nombre = JOptionPane.showInputDialog("Modifique el nombre: ");
 				r.setNombre(nombre);
-				
+				//Modifica apellido
 				String apellido = JOptionPane.showInputDialog("Modifique el apellido: ");
 				r.setApellido(apellido);
+				//Modifica edad
+				/*int edad = JOptionPane.showInputDialog("Modifique la edad: ");
+				r.setEdad(edad);
+				//Modifica sueldo
+				float sueldo = JOptionPane.showInputDialog("Modifique el sueldo: ");
+				r.setSueldo(sueldo);
+				//Modifica grupo
+				Grupo = JOptionPane.showInputDialog("Modifique el Grupo: ");
+				r.setgrupo(Grupo);*/
 				
+				System.out.println("El Representante " + r.getId() + " ha sido editado satisfactoriamente");
+			}
+		}
+	}
+	
+	public static void modificarGrupo() throws IOException { //Metodo para modificar Grupos de Musica
+
+		int grupo = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a modificar:"));
+		for (Representante r : listaRepresentante) {
+			if (r.getId() == id) {
 				
+				//Modifica nombre
+				String nombre = JOptionPane.showInputDialog("Modifique el nombre: ");
+				r.setNombre(nombre);
+				//Modifica apellido
+				String apellido = JOptionPane.showInputDialog("Modifique el apellido: ");
+				r.setApellido(apellido);
+				//Modifica edad
+				/*int edad = JOptionPane.showInputDialog("Modifique la edad: ");
+				r.setEdad(edad);
+				//Modifica sueldo
+				float sueldo = JOptionPane.showInputDialog("Modifique el sueldo: ");
+				r.setSueldo(sueldo);
+				//Modifica grupo
+				Grupo = JOptionPane.showInputDialog("Modifique el Grupo: ");
+				r.setgrupo(Grupo);*/
 				
-				System.out.println("El Representante "+r.getId()+" ha sido editado satisfactoriamente");
+				System.out.println("El Representante " + r.getId() + " ha sido editado satisfactoriamente");
 			}
 		}
 	}
