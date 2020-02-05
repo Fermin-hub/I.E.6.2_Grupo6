@@ -1,12 +1,18 @@
 package dam.obj;
-
+/**
+ * Clase Representante
+ * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
+ * @version: 05/02/2020
+ */
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Grupo {
-
+/**
+ * Definimos atributos
+ */
 	private String nombre, pais;
 	private List<Cd> listaCd = new ArrayList<Cd>();
 
