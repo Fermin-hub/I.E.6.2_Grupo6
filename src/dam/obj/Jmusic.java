@@ -180,5 +180,24 @@ public class Jmusic {
 		}
 	}
 	
-
+	public static void modificarRepresentante() throws IOException { //Metodo para modificar
+		
+		System.out.println("Lista para consultar el ID de cada representante, y modificar los datos necesarios");
+		listarRG();
+		
+		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el ID del representante a modificar:"));
+		for (Representante r : listaRepresentante) {
+			if (r.getId() == id) {
+				String nombre = JOptionPane.showInputDialog("Modifique el nombre: ");
+				r.setNombre(nombre);
+				
+				String apellido = JOptionPane.showInputDialog("Modifique el apellido: ");
+				r.setApellido(apellido);
+				
+				
+				
+				System.out.println("El Representante "+r.getId()+" ha sido editado satisfactoriamente");
+			}
+		}
+	}
 }
