@@ -93,7 +93,7 @@ public class Jmusic {
 		System.out.println("Por favor, introduzca el país del Grupo");
 		String pais = sc.nextLine();
 		do {
-			System.out.println("\n====================\nJMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir");
+			System.out.println("\n====================\nJMusic Entertainment\n====================\n1. Nuevo Disco \n2. Salir");
 			opcion = entrada.controlaInt();
 			if (opcion == 1) {
 				System.out.println("Por favor, introduzca el nombre del Disco");
@@ -102,8 +102,10 @@ public class Jmusic {
 				System.out.println("Por favor, introduzca el año de publicacion del disco");
 				anodisco = entrada.controlaInt();
 				System.out.println("Por favor, introduzca el número de mes de la publicacion del disco");
-				mes = entrada.controlaInt();
-				dia = (int) (Math.random() * 10) + 1;
+				do {
+					mes = entrada.controlaInt();
+				}while(mes <1 || mes >12);
+				dia = (int) (Math.random()*10)+1;
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				temp.add(cd);
 			}
