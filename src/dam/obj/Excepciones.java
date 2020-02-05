@@ -34,4 +34,22 @@ public class Excepciones {
 			} while (error);
 			return entero;
 	}
+	/**
+	 * Excepción para FLOAT
+	 * @return
+	 * @throws IOException
+	 */
+		public float controlaFloat() throws IOException {
+			float entero = 0;
+				do {
+					try {
+						entero = Float.parseFloat(entrada.readLine());
+						error = false;
+					} catch (NumberFormatException e) {
+						System.out.println("Valor no válido, vuelva a introducirlo");
+						error = true;
+					}
+				} while (error);
+				return entero;
+		}
 }

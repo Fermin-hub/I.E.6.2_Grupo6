@@ -1,6 +1,7 @@
 package dam.obj;
 
 import java.io.IOException;
+import java.time.DateTimeException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,13 +20,24 @@ public class Jmusic {
  * @param opcion, Menu
  */
 		Scanner sc = new Scanner(System.in);
-		int opcion;
+		int opcion = 0;
 /**
  * Switch case para la aplicación
  */
 		do {
+			boolean b = true;
+			do {
 			Menu.menu();
+			try {
 			opcion = sc.nextInt();
+			b = false;
+			}catch (Exception Ex) {
+			b = true;
+				System.out.println("Número introducido erróneo");
+				sc.nextLine();
+			}
+			}while (b);
+			
 			switch (opcion) {
 			case 1:
 				createRepresentante();
@@ -55,53 +67,47 @@ public class Jmusic {
  * @param listaRepresentante, arraylist de Representantes
  * @param entrada, para leer excepciones
  */
+	static Scanner sc = new Scanner(System.in);
+
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
 	//private static List<Cd> listaCd = new ArrayList<Cd>(); esta arraylist hacia que los cD no salieran bien.
 	private static Excepciones entrada = new Excepciones();
 /**
  * Método para crear Representantes	
+ * @throws IOException 
  */
-	public static void createRepresentante() { 
+	public static void createRepresentante() throws IOException { 
 		List<Cd> temp = new ArrayList<Cd>(); // arraylist temporal para introducir los CD
-		int opcion2;
-		boolean b = true;
-		boolean b2 = true;
-		int edad = 0;
-		float sueldo = 0;
-		String nombre = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Representante");
-		String apellido = JOptionPane.showInputDialog("Por favor, introduzca los apellidos del Representante");
+		int opcion;
+
+		System.out.println("Por favor, introduzca el nombre del Representante");
+		String nombre = sc.nextLine();
+		System.out.println("Por favor, introduzca el apellido del Representante");
+		String apellido = sc.nextLine();
+		System.out.println("Por favor, introduzca la edad del Representante");
+		int edad = entrada.controlaInt();
+		System.out.println("Por favor, introduzca el sueldo del Representante");
+		float sueldo = entrada.controlaFloat();
+		System.out.println("Por favor, introduzca el nombre del Grupo");
+		String nombreGrupo = sc.nextLine();
+		System.out.println("Por favor, introduzca el país del Grupo");
+		String pais = sc.nextLine();
 		do {
-			try {
-		edad = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca la edad del Representante"));
-		sueldo = Float.parseFloat(JOptionPane.showInputDialog("Por favor, introduzca el sueldo del Representante"));
-		b = false;
-			}catch (Exception Ex) {
-			b = true;	
-			JOptionPane.showMessageDialog(null, "Número introducido erróneo");
-			}
-		}while (b);
-		String nombreGrupo = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Grupo");
-		String pais = JOptionPane.showInputDialog("Por favor, introduzca el pais del Grupo");
-		do {
-			opcion2 = Integer.parseInt(JOptionPane.showInputDialog("====================\nJMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir"));
-			if (opcion2 == 1) {
-				String nombrecd = JOptionPane.showInputDialog("Por favor, introduzca el nombre del Disco");
+			System.out.println("\n====================\nJMusic Entertainment\n====================\n1. Nuevo Disco - Grupo\n2. Salir");
+			opcion = entrada.controlaInt();
+			if (opcion == 1) {
+				System.out.println("Por favor, introduzca el nombre del Disco");
+				String nombrecd = sc.nextLine();
 				int anodisco = 0,dia = 0,mes = 0;
-				do {
-					try {
-				anodisco = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el año de publicacion del disco"));
+				System.out.println("Por favor, introduzca el año de publicacion del disco");
+				anodisco = entrada.controlaInt();
+				System.out.println("Por favor, introduzca el número de mes de la publicacion del disco");
+				mes = entrada.controlaInt();
 				dia = (int) (Math.random() * 10) + 1;
-				mes = Integer.parseInt(JOptionPane.showInputDialog("Por favor, introduzca el mes de publicacion del disco"));
-				b2 = false;
-					}catch (Exception Ex) {
-					b2 = true;	
-					JOptionPane.showMessageDialog(null, "Número introducido erróneo");
-					}
-				}while (b2);
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				temp.add(cd);
 			}
-		} while (opcion2 == 1);
+		} while (opcion == 1);
 		Grupo g = new Grupo(nombreGrupo, pais, temp);
 		Representante r = new Representante(nombre, apellido, edad, sueldo, g);
 		listaRepresentante.add(r);		
@@ -160,10 +166,9 @@ public class Jmusic {
 			}
 			System.out.println("Introduzca la ID del representante para ver la discografia de la banda que representa");
 			int id = entrada.controlaInt();
-		//int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca la ID del representante para ver la discografia de la banda que desea ver"));		
 			for (Representante r : listaRepresentante) {
 				if (r.getId() == id) {
-					System.out.println("La discografia de la banda solicitada esta compuesta por:");
+					System.out.println("La discografia de la banda solicitada esta compuesta por:\n");
 					for (Cd cd : r.getGrupo().getListaCd()) {
 						System.out.println(cd.toString());
 						System.out.println("");		
