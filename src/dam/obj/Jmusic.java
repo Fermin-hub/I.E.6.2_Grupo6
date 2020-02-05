@@ -27,17 +27,16 @@ public class Jmusic {
 		do {
 			boolean b = true;
 			do {
-			Menu.menu();
-			try {
-			opcion = sc.nextInt();
-			b = false;
-			}catch (Exception Ex) {
-			b = true;
-				System.out.println("Número introducido erróneo");
-				sc.nextLine();
-			}
+				Menu.menu();
+					try {
+						opcion = sc.nextInt();
+						b = false;
+					}catch (Exception Ex) {
+						b = true;
+						System.out.println("Número introducido erróneo");
+						sc.nextLine();
+					}
 			}while (b);
-			
 			switch (opcion) {
 			case 1:
 				createRepresentante();
@@ -184,7 +183,7 @@ public class Jmusic {
 		
 		System.out.println("Lista para consultar el ID de cada representante, y modificar los datos necesarios");
 		listarRG();
-		
+
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el ID del representante a modificar:"));
 		for (Representante r : listaRepresentante) {
 			if (r.getId() == id) {
