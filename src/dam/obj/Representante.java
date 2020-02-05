@@ -92,7 +92,7 @@ public class Representante {
  */
 	@Override
 	public String toString() {
-		return "ID: " + id + " - El Manager " + nombre + " " + apellido + " representa al grupo musical " + grupo + "."
+		return "ID: " + id + " - El manager " + nombre + " " + apellido + " representa al grupo musical '" + grupo + "'."
 				+ " Su discografia esta formada por: ";
 	}
 }

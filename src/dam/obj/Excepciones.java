@@ -1,8 +1,8 @@
 package dam.obj;
 /**
 * Clase Excepciones
-* @author: Fermín Jiménez
-* @version: 13/12/2019
+* @author: Fermin Jimenez, Manuel Corona y Daniel Garcia
+* @version: 02/2020
 */
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class Excepciones {
 	BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 	boolean error = false;
 /**
- * Excepción para INT
+ * Excepcion para INT
  * @return
  * @throws IOException
  */
@@ -28,14 +28,14 @@ public class Excepciones {
 					entero = Integer.parseInt(entrada.readLine());
 					error = false;
 				} catch (NumberFormatException e) {
-					System.out.println("Valor no válido");
+					System.out.println("Valor no valido. Introduzcalo de nuevo.");
 					error = true;
 				}
 			} while (error);
 			return entero;
 	}
 	/**
-	 * Excepción para FLOAT
+	 * Excepcion para FLOAT
 	 * @return
 	 * @throws IOException
 	 */
@@ -46,7 +46,7 @@ public class Excepciones {
 						entero = Float.parseFloat(entrada.readLine());
 						error = false;
 					} catch (NumberFormatException e) {
-						System.out.println("Valor no válido, vuelva a introducirlo");
+						System.out.println("Valor no valido. Introduzcalo de nuevo.");
 						error = true;
 					}
 				} while (error);

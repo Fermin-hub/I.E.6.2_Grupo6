@@ -22,7 +22,7 @@ public class Jmusic {
 		Scanner sc = new Scanner(System.in);
 		int opcion = 0;
 /**
- * Switch case para la aplicación
+ * Switch case para la aplicacion
  */
 		do {
 			boolean b = true;
@@ -33,7 +33,7 @@ public class Jmusic {
 						b = false;
 					}catch (Exception Ex) {
 						b = true;
-						System.out.println("Número introducido erróneo");
+						System.out.println("Numero introducido erroneo");
 						sc.nextLine();
 					}
 			}while (b);
@@ -53,6 +53,9 @@ public class Jmusic {
 			case 5:
 				deleteRepresentante();
 				break;
+				
+			//A�adir modificarGrupo() y modificarCD()
+				
 			default:
 				System.out.println("Guardando en la base de datos...\n\nGuardado");
 				break;
@@ -62,14 +65,18 @@ public class Jmusic {
 		} while (opcion != 0);
 	}
 /**
- * Definimos variables estáticas
+ * Definimos variables estaticas
  * @param listaRepresentante, arraylist de Representantes
  * @param entrada, para leer excepciones
  */
 	static Scanner sc = new Scanner(System.in);
 
 	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
-	//private static List<Cd> listaCd = new ArrayList<Cd>(); esta arraylist hacia que los cD no salieran bien.
+	
+	/* COMPROBAR */
+	//private static List<Cd> listaCd = new ArrayList<Cd>(); //esta arraylist hacia que los CD no salieran bien.
+	/**/
+	
 	private static Excepciones entrada = new Excepciones();
 /**
  * Método para crear Representantes	
@@ -79,28 +86,28 @@ public class Jmusic {
 		List<Cd> temp = new ArrayList<Cd>(); // arraylist temporal para introducir los CD
 		int opcion;
 
-		System.out.println("Por favor, introduzca el nombre del Representante");
+		System.out.println("Por favor, introduzca el nombre del representante: ");
 		String nombre = sc.nextLine();
-		System.out.println("Por favor, introduzca el apellido del Representante");
+		System.out.println("Por favor, introduzca el apellido del representante: ");
 		String apellido = sc.nextLine();
-		System.out.println("Por favor, introduzca la edad del Representante");
+		System.out.println("Por favor, introduzca la edad del representante: ");
 		int edad = entrada.controlaInt();
-		System.out.println("Por favor, introduzca el sueldo del Representante");
+		System.out.println("Por favor, introduzca el sueldo del representante: ");
 		float sueldo = entrada.controlaFloat();
-		System.out.println("Por favor, introduzca el nombre del Grupo");
+		System.out.println("Por favor, introduzca el nombre del grupo: ");
 		String nombreGrupo = sc.nextLine();
-		System.out.println("Por favor, introduzca el país del Grupo");
+		System.out.println("Por favor, introduzca el pais del grupo: ");
 		String pais = sc.nextLine();
 		do {
 			System.out.println("\n====================\nJMusic Entertainment\n====================\n1. Nuevo Disco \n2. Salir");
 			opcion = entrada.controlaInt();
 			if (opcion == 1) {
-				System.out.println("Por favor, introduzca el nombre del Disco");
+				System.out.println("Por favor, introduzca el nombre del disco: ");
 				String nombrecd = sc.nextLine();
 				int anodisco = 0,dia = 0,mes = 0;
-				System.out.println("Por favor, introduzca el año de publicacion del disco");
+				System.out.println("Por favor, introduzca el a�o de publicacion del disco: ");
 				anodisco = entrada.controlaInt();
-				System.out.println("Por favor, introduzca el número de mes de la publicacion del disco");
+				System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco: ");
 				do {
 					mes = entrada.controlaInt();
 				}while(mes <1 || mes >12);
@@ -114,7 +121,7 @@ public class Jmusic {
 		listaRepresentante.add(r);		
 	}
 /**
- * Método para listar los Representantes y grupos
+ * Metodo para listar los Representantes y grupos
  */
 	public static void listarRG() { // Metodo para extraer solo los representantes.
 		if (listaRepresentante.isEmpty()) {
@@ -130,10 +137,10 @@ public class Jmusic {
 		}
 	}
 /**
- * Método para borrar representantes
+ * Metodo para borrar representantes
  * @throws IOException
  */
-	public static void deleteRepresentante() throws IOException { // Metodo para eliminar los representantes.
+	public static void deleteRepresentante() throws IOException {
 		listarRG();
 		System.out.println("Introduzca la ID del representante a borrar");
 		int borrar = entrada.controlaInt();
@@ -154,12 +161,12 @@ public class Jmusic {
 		}*/
 	}
 /**
- * Método para liistar los CD de la banda
+ * Metodo para listar los CD de la banda
  * @throws IOException
  */
-	public static void listarBandas() throws IOException { // metodo para listar las bandas registradas con sus discos
+	public static void listarBandas() throws IOException {
 		if (listaRepresentante.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No existen Representantes registrados");
+			JOptionPane.showMessageDialog(null, "No existen representantes almacenados");
 		}else {
 			for (int i = 0; i < listaRepresentante.size(); i++) {
 				System.out.println((i+1)+". El representante "+listaRepresentante.get(i).getNombre()+" representa al grupo "+listaRepresentante.get(i).getGrupo().getNombre()+" y su ID es "+listaRepresentante.get(i).getId());
@@ -210,25 +217,34 @@ public class Jmusic {
 	
 	public static void modificarGrupo() throws IOException { //Metodo para modificar Grupos de Musica
 
-		int grupo = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a modificar:"));
+		int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a modificar:"));
 		for (Representante r : listaRepresentante) {
-			if (r.getId() == id) {
+			if (r.getNombre() == n) { //REVISAR MA�ANA EN CLASE
 				
 				//Modifica nombre
 				String nombre = JOptionPane.showInputDialog("Modifique el nombre: ");
 				r.setNombre(nombre);
 				//Modifica apellido
-				String apellido = JOptionPane.showInputDialog("Modifique el apellido: ");
-				r.setApellido(apellido);
-				//Modifica edad
-				/*int edad = JOptionPane.showInputDialog("Modifique la edad: ");
-				r.setEdad(edad);
-				//Modifica sueldo
-				float sueldo = JOptionPane.showInputDialog("Modifique el sueldo: ");
-				r.setSueldo(sueldo);
-				//Modifica grupo
-				Grupo = JOptionPane.showInputDialog("Modifique el Grupo: ");
-				r.setgrupo(Grupo);*/
+				String pais = JOptionPane.showInputDialog("Modifique el pais: ");
+				r.setApellido(pais);
+				
+				System.out.println("El Grupo " + r.getGrupo() + " ha sido editado satisfactoriamente");
+			}
+		}
+	}
+	
+	public static void modificarCD() throws IOException { //Metodo para modificar CD
+
+		int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a modificar:"));
+		for (Representante r : listaRepresentante) {
+			if (r.getNombre() == cd) { //REVISAR MA�ANA EN CLASE
+				
+				//Modifica nombre
+				String nombre = JOptionPane.showInputDialog("Modifique el nombre: ");
+				r.setNombre(nombre);
+				//Modifica fecha
+				String date = JOptionPane.showInputDialog("Modifique el a�o de publicacion: ");
+				r.setDate(date);
 				
 				System.out.println("El Representante " + r.getId() + " ha sido editado satisfactoriamente");
 			}
