@@ -1,18 +1,21 @@
 package dam.obj;
-/**
- * Clase Representante
- * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 05/02/2020
- */
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Grupo {
 /**
- * Definimos atributos
+ * 
+ * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
+ * @version: 02/2020
+ * 
  */
+
+public class Grupo {
+	
+	/**
+	 * Atributos
+	 */
 	private String nombre, pais;
 	private List<Cd> listaCd = new ArrayList<Cd>();
 
@@ -22,6 +25,10 @@ public class Grupo {
 		this.listaCd = cd;
 	}
 
+	/**
+	 * Getters y Setters
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -38,7 +45,12 @@ public class Grupo {
 		this.pais = pais;
 	}
 
-	public List<Cd> getListaCd() { // ordenamos con shorted ya que nos piden que sea por nombre.
+	/**
+	 * Get y Set de ListaCd
+	 * Ordena con sorted por nombre de CD
+	 * @return
+	 */
+	public List<Cd> getListaCd() { // Ordena con sorted por nombre de CD
 		return listaCd.stream().sorted(Comparator.comparing(Cd::getNombre)).collect(Collectors.toList());
 	}
 
@@ -46,6 +58,9 @@ public class Grupo {
 		this.listaCd = listaCd;
 	}
 
+	/**
+	 * toString
+	 */
 	@Override
 	public String toString() {
 		return getNombre();

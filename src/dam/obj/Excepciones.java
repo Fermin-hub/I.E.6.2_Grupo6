@@ -1,26 +1,31 @@
 package dam.obj;
-/**
-* Clase Excepciones
-* @author: Fermin Jimenez, Manuel Corona y Daniel Garcia
-* @version: 02/2020
-*/
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Excepciones {
 /**
- * Variables para usar
- * @param entrada, Entrada por teclado
- * @param error bolean repetir
- */
+* Clase Excepciones
+* @author: Fermin Jimenez, Manuel Corona y Daniel Garcia
+* @version: 02/2020
+* 
+*/
+
+public class Excepciones {
+
+	/**
+	 * Variables
+	 * @param entrada, Entrada por teclado
+	 * @param error bolean repetir
+	 */
 	BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 	boolean error = false;
-/**
- * Excepcion para INT
- * @return
- * @throws IOException
- */
+	
+	/**
+	 * Excepcion para INT
+	 * @return
+	 * @throws IOException
+	 */
 	public int controlaInt() throws IOException {
 		int entero = 0;
 			do {
@@ -34,6 +39,7 @@ public class Excepciones {
 			} while (error);
 			return entero;
 	}
+	
 	/**
 	 * Excepcion para FLOAT
 	 * @return

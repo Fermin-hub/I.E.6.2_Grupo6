@@ -1,19 +1,22 @@
 package dam.obj;
+
 /**
- * Clase Representante
+ * 
  * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 05/02/2020
+ * @version: 02/2020
+ * 
  */
 public class Representante {
-/**
- * Definimos variables
- * @param nombre, Nombre del Representante
- * @param apellido, Apellido del Representante
- * @param edad, Edad del Representante
- * @param id, ID del Representante
- * @param sueldo, Sueldo del Representante
- * @param grupo, Grupo del Representante
- */
+	
+	/**
+	 * Variables
+	 * @param nombre, Nombre del Representante
+	 * @param apellido, Apellido del Representante
+	 * @param edad, Edad del Representante
+	 * @param id, ID del Representante
+	 * @param sueldo, Sueldo del Representante
+	 * @param grupo, Grupo del Representante
+	 */
 	private String nombre, apellido;
 	private int edad, id;
 	private static int id2 = 100;
@@ -26,14 +29,15 @@ public class Representante {
 	public Representante() {
 		
 	}
-/**
- * Constructor
- * @param nombre
- * @param apellido
- * @param edad
- * @param sueldo
- * @param grupo
- */
+	
+	/**
+	 * Constructor
+	 * @param nombre
+	 * @param apellido
+	 * @param edad
+	 * @param sueldo
+	 * @param grupo
+	 */
 	public Representante(String nombre, String apellido, int edad, float sueldo, Grupo grupo) {
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -43,10 +47,11 @@ public class Representante {
 		id2++; 
 		id = id2;
 	}
-/**
- * GETS and SETS
- * @return
- */
+
+	/**
+	 * Getters y Setters
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -94,9 +99,10 @@ public class Representante {
 	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
-/**
- * Método toString
- */
+
+	/**
+	 * toString
+	 */
 	@Override
 	public String toString() {
 		return "ID: " + id + " - El manager " + nombre + " " + apellido + " representa al grupo musical '" + grupo + "'."

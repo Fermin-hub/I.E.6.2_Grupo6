@@ -6,24 +6,26 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Clase Representante
  * 
  * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 05/02/2020
+ * @version: 02/2020
+ * 
  */
+
 public class Jmusic {
 
 	public static void main(String[] args) throws IOException {
 		/**
-		 * Definimos variables
+		 * Variables
 		 * 
 		 * @param sc      Scanner
 		 * @param opcion, Menu
 		 */
 		Scanner sc = new Scanner(System.in);
 		int opcion = 0;
+		
 		/**
-		 * Switch case para la aplicacion
+		 * Switch case
 		 */
 		do {
 			boolean b = true;
@@ -46,7 +48,7 @@ public class Jmusic {
 				visualizarDatos();
 				break;
 			case 3:
-				// Modificar Datos
+				//modificarDatos();
 				break;
 			case 4:
 				buscarDiscografia();
@@ -65,24 +67,19 @@ public class Jmusic {
 	}
 
 	/**
-	 * Definimos variables estaticas
+	 * Variables estáticas
 	 * 
 	 * @param listaRepresentante, arraylist de Representantes
 	 * @param entrada,            para leer excepciones
 	 */
 	static Scanner sc = new Scanner(System.in);
 
-	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes.
-
-	/* COMPROBAR */
-	// private static List<Cd> listaCd = new ArrayList<Cd>(); //esta arraylist hacia
-	// que los CD no salieran bien.
-	/**/
+	private static List<Representante> listaRepresentante = new ArrayList<Representante>(); // lista de representantes
 
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * MÃ©todo para Agregar los datos
+	 * Añade Representante y Grupo
 	 * 
 	 * @throws IOException
 	 */
@@ -102,6 +99,10 @@ public class Jmusic {
 		String nombreGrupo = sc.nextLine();
 		System.out.println("Por favor, introduzca el pais del grupo: ");
 		String pais = sc.nextLine();
+		
+		/**
+		 * Agregar Discografia (CD)
+		 */
 		do {
 			System.out.println(
 					"\n====================\nJMusic Entertainment\n====================\n1. Agregar Disco \n2. Salir");
@@ -153,9 +154,9 @@ public class Jmusic {
 	}
 
 	/**
-	 * Metodo para listar los Representantes y grupos
+	 * Visualiza los datos de representante, grupo y discografia
 	 */
-	public static void visualizarDatos() { // Metodo para extraer los datos.
+	public static void visualizarDatos() {
 		if (listaRepresentante.isEmpty()) {
 			System.out.println("No existen Datos almacenados");
 		} else {
@@ -170,9 +171,9 @@ public class Jmusic {
 	}
 
 	/**
-	 * Metodo para listar los Representantes sin otros datos.
+	 * Lista solo los REPRESENTANTES
 	 */
-	public static void listarRepreresumido() { // Metodo para extraer solo los representantes sin banda ni cd.
+	public static void listarRepreresumido() {
 
 		for (Representante r : listaRepresentante) {
 			System.out.println("ID: " + r.getId() + " - El Manager " + r.getNombre() + " " + r.getApellido());
@@ -180,15 +181,19 @@ public class Jmusic {
 		}
 	}
 
-	public static void eliminarDatos() throws IOException { // Metodo para eliminar los representantes.
+	/**
+	 * Eliminar representante, grupo y cd
+	 * @throws IOException
+	 */
+	public static void eliminarDatos() throws IOException {
 		int j = 0;
 		Representante temp = new Representante();
 		if (listaRepresentante.size() == 0) {
-			System.out.println("No existen Datos Almacenados.");
+			System.out.println("No existen datos almacenados.");
 		} else {
 			do {
 				j = 0;
-				System.out.println("Por favor Introduzca la ID del representante para borrar todos los datos");
+				System.out.println("Por favor, introduzca la ID del representante para borrar todos los datos");
 				listarRepreresumido();
 				int id = entrada.controlaInt();
 				for (int i = 0; i < listaRepresentante.size(); i++) {
@@ -208,17 +213,9 @@ public class Jmusic {
 		}
 
 	}
-	/*
-	 * int id = Integer.parseInt(JOptionPane.
-	 * showInputDialog("Por favor, escriba la id del representante que desea borrar"
-	 * )); for (Representante r : listaRepresentante) { if (r.getId() == id) {
-	 * listaRepresentante.remove(id);
-	 * JOptionPane.showInputDialog("El representante "+listaRepresentante.get(id).
-	 * getNombre()+" ha sido eliminado satisfactoriamente"); } }
-	 */
-
+	
 	/**
-	 * Metodo para listar los CD de la banda
+	 * Lista los CD del grupo
 	 * 
 	 * @throws IOException
 	 */
@@ -249,6 +246,10 @@ public class Jmusic {
 			}
 		}while (j > 0);
 	}
+		
+	/**
+	 * Metodos de modificar
+	 */
 	/*
 	  public static void modificarRepresentante() throws IOException { //Metodo
 	  para modificar Representantes
