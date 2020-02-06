@@ -82,7 +82,7 @@ public class Jmusic {
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * MÃ©todo para crear Representantes
+	 * MÃ©todo para Agregar los datos
 	 * 
 	 * @throws IOException
 	 */
@@ -122,12 +122,12 @@ public class Jmusic {
 				System.out.println("Por favor, introduzca el nombre del Disco");
 				String nombrecd = sc.nextLine();
 				int anodisco = 0, dia = 0, mes = 0;
-				System.out.println("Por favor, introduzca el aÃ±o de publicacion del disco");
+				System.out.println("Por favor, introduzca el año de publicacion del disco");
 				anodisco = entrada.controlaInt();
 				System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
 				do {
 					mes = entrada.controlaInt();
-				} while (mes < 0 || mes > 13);
+				} while (mes <= 0 || mes >= 13);
 
 				dia = (int) (Math.random() * 10) + 1;
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
@@ -221,9 +221,13 @@ public class Jmusic {
 	 * @throws IOException
 	 */
 	public static void buscarDiscografia() throws IOException {
+		int j =0;
 		if (listaRepresentante.isEmpty()) {
 			System.out.println("No existen Datos almacenados");
 		} else {
+			do {
+				j = 0;
+			
 			for (int i = 0; i < listaRepresentante.size(); i++) {
 				System.out.println((i + 1) + ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre()
 						+ " cuya ID es " + listaRepresentante.get(i).getId() + "\n");
@@ -236,60 +240,63 @@ public class Jmusic {
 					for (Cd cd : r.getGrupo().getListaCd()) {
 						System.out.println(cd.toString());
 					}
+					}else {
+						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+						j++;
 				}
 			}
-		}
+		}while (j > 0);
 	}
-	/**
-	 * public static void modificarRepresentante() throws IOException { //Metodo
-	 * para modificar Representantes
-	 * 
-	 * System.out.println("Lista para consultar el ID de cada representante, y
-	 * modificar los datos necesarios"); listarRG(); //Lista los representantes con
-	 * su ID int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el ID
-	 * del representante a modificar:")); for (Representante r : listaRepresentante)
-	 * { if (r.getId() == id) {
-	 * 
-	 * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
-	 * nombre: "); r.setNombre(nombre); //Modifica apellido String apellido =
-	 * JOptionPane.showInputDialog("Modifique el apellido: ");
-	 * r.setApellido(apellido); //Modifica edad /*int edad =
-	 * JOptionPane.showInputDialog("Modifique la edad: "); r.setEdad(edad);
-	 * //Modifica sueldo float sueldo = JOptionPane.showInputDialog("Modifique el
-	 * sueldo: "); r.setSueldo(sueldo); //Modifica grupo Grupo =
-	 * JOptionPane.showInputDialog("Modifique el Grupo: "); r.setgrupo(Grupo);
+	/*
+	  public static void modificarRepresentante() throws IOException { //Metodo
+	  para modificar Representantes
+	  
+	  System.out.println("Lista para consultar el ID de cada representante, y
+	  modificar los datos necesarios"); listarRG(); //Lista los representantes con
+	  su ID int id = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el ID
+	  del representante a modificar:")); for (Representante r : listaRepresentante)
+	 { if (r.getId() == id) {
+	  
+	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
+	  nombre: "); r.setNombre(nombre); //Modifica apellido String apellido =
+	  JOptionPane.showInputDialog("Modifique el apellido: ");
+	  r.setApellido(apellido); //Modifica edad /*int edad =
+	  JOptionPane.showInputDialog("Modifique la edad: "); r.setEdad(edad);
+	 //Modifica sueldo float sueldo = JOptionPane.showInputDialog("Modifique el
+	  sueldo: "); r.setSueldo(sueldo); //Modifica grupo Grupo =
+	  JOptionPane.showInputDialog("Modifique el Grupo: "); r.setgrupo(Grupo);
+	 
+	
+	  System.out.println("El Representante " + r.getId() + " ha sido editado
+	  satisfactoriamente"); } } }
+	  
+	  public static void modificarGrupo() throws IOException { //Metodo para
+	  modificar Grupos de Musica
+	  
+	  int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
+	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
+	  == n) { //REVISAR MAÑANA EN CLASE
+	  
+	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
+	  nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
+	  JOptionPane.showInputDialog("Modifique el pais: "); r.setApellido(pais);
+	  
+	  System.out.println("El Grupo " + r.getGrupo() + " ha sido editado
+	  satisfactoriamente"); } } }
+	  
+	  public static void modificarCD() throws IOException { //Metodo para modificar
+	  CD
+	  
+	  int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
+	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
+	  == cd) { //REVISAR MAÑANA EN CLASE
+	  
+	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
+	  nombre: "); r.setNombre(nombre); //Modifica fecha String date =
+	  JOptionPane.showInputDialog("Modifique el año de publicacion: ");
+	  r.setDate(date);
+	  
+	  System.out.println("El Representante " + r.getId() + " ha sido editado
+	  satisfactoriamente"); } } }
 	 */
-	/**
-	 * System.out.println("El Representante " + r.getId() + " ha sido editado
-	 * satisfactoriamente"); } } }
-	 * 
-	 * public static void modificarGrupo() throws IOException { //Metodo para
-	 * modificar Grupos de Musica
-	 * 
-	 * int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
-	 * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	 * == n) { //REVISAR MAÑANA EN CLASE
-	 * 
-	 * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
-	 * nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
-	 * JOptionPane.showInputDialog("Modifique el pais: "); r.setApellido(pais);
-	 * 
-	 * System.out.println("El Grupo " + r.getGrupo() + " ha sido editado
-	 * satisfactoriamente"); } } }
-	 * 
-	 * public static void modificarCD() throws IOException { //Metodo para modificar
-	 * CD
-	 * 
-	 * int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
-	 * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	 * == cd) { //REVISAR MAÑANA EN CLASE
-	 * 
-	 * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
-	 * nombre: "); r.setNombre(nombre); //Modifica fecha String date =
-	 * JOptionPane.showInputDialog("Modifique el año de publicacion: ");
-	 * r.setDate(date);
-	 * 
-	 * System.out.println("El Representante " + r.getId() + " ha sido editado
-	 * satisfactoriamente"); } } }
-	 */
-}
+}}
