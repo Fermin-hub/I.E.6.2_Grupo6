@@ -19,6 +19,13 @@ public class Representante {
 	private static int id2 = 100;
 	private float sueldo;
 	private Grupo grupo;
+	
+	/**
+	 * Constructor vacio
+	 */
+	public Representante() {
+		
+	}
 /**
  * Constructor
  * @param nombre
