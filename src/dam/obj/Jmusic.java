@@ -124,10 +124,12 @@ public class Jmusic {
 				int anodisco = 0, dia = 0, mes = 0;
 				System.out.println("Por favor, introduzca el año de publicacion del disco");
 				anodisco = entrada.controlaInt();
-				System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
+				
 				do {
+				System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
 					mes = entrada.controlaInt();
 				} while (mes <= 0 || mes >= 13);
+				
 
 				dia = (int) (Math.random() * 10) + 1;
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
