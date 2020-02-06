@@ -67,7 +67,7 @@ public class Jmusic {
 	}
 
 	/**
-	 * Variables estáticas
+	 * Variables estï¿½ticas
 	 * 
 	 * @param listaRepresentante, arraylist de Representantes
 	 * @param entrada,            para leer excepciones
@@ -79,7 +79,7 @@ public class Jmusic {
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * Añade Representante y Grupo
+	 * Aï¿½ade Representante y Grupo
 	 * 
 	 * @throws IOException
 	 */
@@ -123,15 +123,12 @@ public class Jmusic {
 				System.out.println("Por favor, introduzca el nombre del Disco");
 				String nombrecd = sc.nextLine();
 				int anodisco = 0, dia = 0, mes = 0;
-				System.out.println("Por favor, introduzca el año de publicacion del disco");
-				anodisco = entrada.controlaInt();
-				
+				System.out.println("Por favor, introduzca el aï¿½o de publicacion del disco");
+				anodisco = entrada.controlaInt();	
 				do {
-				System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
+					System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
 					mes = entrada.controlaInt();
-				} while (mes <= 0 || mes >= 13);
-				
-
+				} while (mes < 1 || mes > 12);
 				dia = (int) (Math.random() * 10) + 1;
 				Cd cd = new Cd(nombrecd, anodisco, mes, dia);
 				temp.add(cd);
@@ -203,7 +200,7 @@ public class Jmusic {
 				}
 				if (temp.getNombre() != null) {
 					System.out.println("El representante " + temp.getNombre() + " con ID " + temp.getId()
-							+ " ha sido eliminado correctamente juntos con los datos almacenados");
+							+ " ha sido eliminado correctamente junto con los datos almacenados");
 					listaRepresentante.remove(temp);
 				} else {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
@@ -278,7 +275,7 @@ public class Jmusic {
 	  
 	  int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
 	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	  == n) { //REVISAR MAÑANA EN CLASE
+	  == n) { //REVISAR MAï¿½ANA EN CLASE
 	  
 	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
 	  nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
@@ -292,11 +289,11 @@ public class Jmusic {
 	  
 	  int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
 	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	  == cd) { //REVISAR MAÑANA EN CLASE
+	  == cd) { //REVISAR MAï¿½ANA EN CLASE
 	  
 	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
 	  nombre: "); r.setNombre(nombre); //Modifica fecha String date =
-	  JOptionPane.showInputDialog("Modifique el año de publicacion: ");
+	  JOptionPane.showInputDialog("Modifique el aï¿½o de publicacion: ");
 	  r.setDate(date);
 	  
 	  System.out.println("El Representante " + r.getId() + " ha sido editado
