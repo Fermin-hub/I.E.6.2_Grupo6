@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /**
  * 
@@ -210,7 +211,7 @@ public class Jmusic {
 					j++;
 				}
 				if (k > 0) {
-					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+					System.out.println("El ID introducido no es correcto");
 				}
 			} while (j > 0);
 		}
@@ -317,7 +318,7 @@ public class Jmusic {
 	// иииииииииииииииииииииииииииии
 	// ********************************
 	// Metodo Alternativo para modificacion de datos.
-	/*
+/*
 	public static void modificarDatos() throws IOException {
 
 		if (listaRepresentante.isEmpty()) {
@@ -351,7 +352,7 @@ public class Jmusic {
 						for (Representante r : listaRepresentante) {
 							if (r.getId() == id) {
 								System.out.println("Modifique su nombre: ");
-								r.setNombre(sc.nextLine()); 
+								r.setNombre(sc.nextLine());
 								System.out.println("Modifique su apellido: ");
 								r.setApellido(sc.nextLine());
 								System.out.println("Modifique su edad: ");
@@ -388,11 +389,10 @@ public class Jmusic {
 						for (Representante r : listaRepresentante) {
 							if (r.getId() == id) {
 								System.out.println("Modifique su nombre: ");
-
+								r.getGrupo().setNombre(sc.nextLine());
 								System.out.println("Modifique su pais: ");
-
-								// System.out.println("El Representante " + listaRepresentante.get(i).getId() +
-								// " ha sido editado satisfactoriamente");
+								r.getGrupo().setPais(sc.nextLine());
+								System.out.println("La Banda Musical ha sido editada satisfactoriamente");
 							} else {
 								System.out
 										.println("El ID introducido no es correcto por favor introduzca un ID valido");
