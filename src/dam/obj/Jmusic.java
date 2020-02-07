@@ -260,6 +260,112 @@ public class Jmusic {
 		}
 	}
 
+	/*public static void modificar () throws IOException {
+		System.out.println("Por favor, introduzca la id del representante amodificar");
+		int id = entrada.controlaInt();
+		
+		System.out.println("\n====================\nModificación\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n0. Salir");
+		int opcion = entrada.controlaInt();
+		switch (opcion) {
+		case 1:
+			System.out.println("\n====================\nModificación\n====================\n1. Modificar Nombre \n2. Apellidos \n3. Modificar Sueldo \n4. Modificar Edad\n0. Salir");
+			int opcion2 = entrada.controlaInt();
+			switch (opcion2) {
+			case 1:
+				System.out.println("Introduzca el nuevo nombre");
+				String nombre2=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.setNombre(nombre2);
+					} 
+				}
+				System.out.println("Nombre modificado");
+				break;
+			case 2:
+				System.out.println("Introduzca los apellidos");
+				String apellido2=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.setNombre(apellido2);
+					} 
+				}
+				System.out.println("Apellidos modificados");
+				break;
+			case 3:
+				System.out.println("Introduzca los apellidos");
+				float sueldo2=entrada.controlaFloat();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.setSueldo(sueldo2);
+					} 
+				}
+				System.out.println("Sueldo modificado");
+				break;
+			default:
+			}
+			break;
+		case 2:
+			System.out.println("\n====================\nModificación\n====================\n1. Modificar Nombre \n2. Modificar Pais \n0. Salir");
+			int opcion3 = entrada.controlaInt();
+			switch (opcion3) {
+			case 1:
+				System.out.println("Introduzca el nuevo nombre");
+				String nombre2=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.getGrupo().setNombre(nombre2);
+					} 
+				}
+				System.out.println("Nombre modificado");
+				break;
+			case 2:
+				System.out.println("Introduzca El pais");
+				String pais=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.getGrupo().setPais(pais);
+					} 
+				}
+				System.out.println("Pais modificado");
+				break;
+
+		default:
+		}
+			
+		case 3:
+			System.out.println("\n====================\nModificación\n====================\n1. Modificar Nombre \n2. Modificar anio \n3. Modificar mes \n0. Salir");
+			int opcion4 = entrada.controlaInt();
+			switch (opcion4) {
+			case 1:
+				System.out.println("Introduzca el nuevo nombre");
+				String nombre2=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.getGrupo().getListaCd().get(opcion4).setNombre(nombre2);
+					} 
+				}
+				System.out.println("Nombre modificado");
+				break;
+			case 2:
+				System.out.println("Introduzca el anio");
+				String anio=sc.nextLine();
+				for (Representante r : listaRepresentante) {
+					if (r.getId() == id) {
+						r.getGrupo().getListaCd().get(opcion4).setDate(date);;
+					} 
+				}
+				System.out.println("Pais modificado");
+			
+			
+			
+			
+			break;
+		}
+		
+		}	
+		
+		
+	}*/
 	/**
 	 * Metodos de modificar
 	 * 
