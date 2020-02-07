@@ -190,8 +190,8 @@ public class Jmusic {
 		} else {
 			do {
 				j = 0;
-				System.out.println("Por favor Introduzca la ID del representante para borrar todos los datos");
 				listarRepreresumido();
+				System.out.println("Por favor Introduzca la ID del representante para borrar todos los datos");
 				int id = entrada.controlaInt();
 				/*
 				 * for (int i = 0; i < listaRepresentante.size(); i++) { if (id ==
