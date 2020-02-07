@@ -274,13 +274,12 @@ public class Jmusic {
 		int id = entrada.controlaInt();
 
 		System.out.println(
-				"\n====================\nModificacion\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n0. Salir");
+				"\n====================\nModificacion\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. Salir");
 		int opcion = entrada.controlaInt();
 
 		do {
 			boolean b = true;
-			do {
-				Menu.menu();
+			do { System.out.println("Numero introducido erroneo");
 				try {
 					opcion = sc.nextInt();
 					b = false;
@@ -294,7 +293,7 @@ public class Jmusic {
 			switch (opcion) {
 			case 1:
 				System.out.println(
-						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n0. Salir");
+						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n5. Salir");
 				int opcion2 = entrada.controlaInt();
 				switch (opcion2) {
 				case 1:
@@ -342,7 +341,7 @@ public class Jmusic {
 				break;
 			case 2:
 				System.out.println(
-						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Pais \n0. Salir");
+						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Pais \n3. Salir");
 				int opcion3 = entrada.controlaInt();
 				switch (opcion3) {
 				case 1:
@@ -381,7 +380,7 @@ public class Jmusic {
 				int cd2 = (entrada.controlaInt() - 1);
 
 				System.out.println(
-						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar anio \n3. Modificar mes \n0. Salir");
+						"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar anio \n3. Modificar mes \n4. Salir");
 				int opcion4 = entrada.controlaInt();
 
 				switch (opcion4) {
@@ -418,63 +417,6 @@ public class Jmusic {
 				}
 				break;
 			}
-		} while (opcion != 5);
+		} while (opcion != 4);
 	}
 }
-
-/**
- * Metodos de modificar
- * 
- * @return
- */
-
-/*
- * public static void modificarRepresentante() throws IOException { //Metodo
- * para modificar Representantes
- * 
- * System.out.
- * println("Lista para consultar el ID de cada representante, y modificar los datos necesarios"
- * ); listarRepreresumido(); //Lista los representantes con su ID int id =
- * System.out.println("Introduzca el ID del representante a modificar:"); for
- * (Representante r : listaRepresentante) { if (r.getId() == id) {//Modifica
- * nombre String nombre = System.out.println("Modifique el nombre: ");
- * r.setNombre(nombre); //Modifica apellido String apellido =
- * System.out.println("Modifique el apellido: "); r.setApellido(apellido);
- * //Modifica edad /*int edad = System.out.println("Modifique la edad: ");
- * r.setEdad(edad); //Modifica sueldo float sueldo =
- * JOptionPane.showInputDialog("Modifique el sueldo: "); r.setSueldo(sueldo);
- * //Modifica grupo Grupo = System.out.println("Modifique el Grupo: ");
- * r.setgrupo(Grupo);
- * 
- * 
- * System.out.println("El Representante " + r.getId() +
- * " ha sido editado satisfactoriamente"); } } } /* public static void
- * modificarGrupo() throws IOException { //Metodo para modificar Grupos de
- * Musica
- * 
- * int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
- * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
- * == n) { //REVISAR MA�ANA EN CLASE
- * 
- * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
- * nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
- * JOptionPane.showInputDialog("Modifique el pais: "); r.setApellido(pais);
- * 
- * System.out.println("El Grupo " + r.getGrupo() + " ha sido editado
- * satisfactoriamente"); } } }
- * 
- * public static void modificarCD() throws IOException { //Metodo para modificar
- * CD
- * 
- * int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
- * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
- * == cd) { //REVISAR MA�ANA EN CLASE
- * 
- * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
- * nombre: "); r.setNombre(nombre); //Modifica fecha String date =
- * JOptionPane.showInputDialog("Modifique el a�o de publicacion: ");
- * r.setDate(date);
- * 
- * System.out.println("El Representante " + r.getId() + " ha sido editado
- * satisfactoriamente"); } } }
- */
