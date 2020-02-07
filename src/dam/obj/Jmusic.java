@@ -202,7 +202,7 @@ public class Jmusic {
 
 				if (temp.getNombre() != null) {
 					System.out.println("El representante " + temp.getNombre() + " con ID " + temp.getId()
-							+ " ha sido eliminado correctamente juntos con los datos almacenados");
+							+ " ha sido eliminado correctamente junto con los datos almacenados");
 					listaRepresentante.remove(temp);
 				} else {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
