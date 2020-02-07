@@ -325,25 +325,45 @@ public class Jmusic {
 	  public static void modificarDatos() throws IOException {
 	  
 	  if (listaRepresentante.isEmpty()) {
-	  System.out.println("No existen Datos almacenados"); } else { int opcion = 0;
-	  do { System.out.println(
-	  "\n====================\nMenu Modificaciones\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. No realizar mas cambios"
-	  ); boolean b = true; do { try { opcion = sc.nextInt(); b = false; } catch
-	  (Exception Ex) { b = true;
-	  System.out.println("Por favor introduzca un caracter numerico");
-	  sc.nextLine(); } } while (b); sc.nextLine(); switch (opcion) { case 1: int j
-	  = 0; int k = 0; do { j = 0; listarRepreresumido();
-	  System.out.println("Introduzca la ID del representante que desea modificar");
-	  int id = entrada.controlaInt(); for (Representante r : listaRepresentante) {
-	  if (r.getId() == id) { System.out.println("Modifique su nombre: ");
-	  r.setNombre(sc.nextLine()); System.out.println("Modifique su apellido: ");
-	  r.setApellido(sc.nextLine()); System.out.println("Modifique su edad: ");
-	  r.setEdad(entrada.controlaInt());
-	  System.out.println("Modifique su sueldo: ");
-	  r.setSueldo(entrada.controlaInt()); System.out.println( "El Representante " +
-	  r.getId() + " ha sido editado satisfactoriamente"); } else { System.out
-	  .println("El ID introducido no es correcto por favor introduzca un ID valido"
-	  ); j++; k++; } } if (k > 0) { System.out.
+	  System.out.println("No existen Datos almacenados"); 
+	  } else { 
+		  int opcion = 0;
+		  do { System.out.println("\n====================\nMenu Modificaciones\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. No realizar mas cambios"); 
+		  boolean b = true; 
+		  do { 
+			  try { 
+				  opcion = sc.nextInt(); 
+				  b = false; 
+				  } catch  (Exception Ex) { 
+					  b = true;
+					  System.out.println("Por favor introduzca un caracter numerico");
+					  sc.nextLine();
+					  } 
+		  		} while (b); 
+	  sc.nextLine(); 
+	  switch (opcion) { 
+	  case 1: int j= 0; 
+	   
+	  do { 
+		  j = 0; 
+		  listarRepreresumido();
+		  System.out.println("Introduzca la ID del representante que desea modificar");
+		  int id = entrada.controlaInt(); 
+		  for (Representante r : listaRepresentante) {
+			  if (r.getId() == id) { System.out.println("Modifique su nombre: ");
+			  r.setNombre(sc.nextLine()); System.out.println("Modifique su apellido: ");
+			  r.setApellido(sc.nextLine()); System.out.println("Modifique su edad: ");
+			  r.setEdad(entrada.controlaInt());
+			  System.out.println("Modifique su sueldo: ");
+			  r.setSueldo(entrada.controlaInt()); System.out.println( "El Representante " +
+					  r.getId() + " ha sido editado satisfactoriamente"); 
+			  } 
+			  else { 
+				  System.out.println("El ID introducido no es correcto por favor introduzca un ID valido"); 
+				  j++; 
+				  k++; 
+				  } 
+			  		} if (k > 0) { System.out.
 	  println("El ID introducido no es correcto por favor introduzca un ID valido"
 	  ); } } while (j > 0);
 	  
