@@ -1,7 +1,6 @@
 package dam.obj;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -72,7 +71,7 @@ public class Jmusic {
 	 * Variables estaticas
 	 * 
 	 * @param listaRepresentante, arraylist de Representantes
-	 * @param entrada,            para leer excepciones
+	 * @param entrada, para leer excepciones
 	 */
 	static Scanner sc = new Scanner(System.in);
 
@@ -81,7 +80,7 @@ public class Jmusic {
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * Agrega Representante y Grupo
+	 * A�ade Representante y Grupo
 	 * 
 	 * @throws IOException
 	 */
@@ -106,8 +105,8 @@ public class Jmusic {
 		 * Agregar Discografia (CD)
 		 */
 		do {
-			System.out
-					.println("\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
+			System.out.println(
+					"\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
 			boolean b = true;
 			do {
 				try {
@@ -115,7 +114,7 @@ public class Jmusic {
 					b = false;
 				} catch (Exception Ex) {
 					b = true;
-					System.out.println("Por favor introduzca un caracter numerico");
+					System.out.println ("Por favor introduzca un caracter numerico");
 					sc.nextLine();
 				}
 			} while (b);
@@ -125,7 +124,7 @@ public class Jmusic {
 				System.out.println("Por favor, introduzca el nombre del Disco");
 				String nombrecd = sc.nextLine();
 				int anodisco = 0, dia = 0, mes = 0;
-				System.out.println("Por favor, introduzca el anio de publicacion del disco");
+				System.out.println("Por favor, introduzca el a�o de publicacion del disco");
 				anodisco = entrada.controlaInt();
 				do {
 					System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
@@ -234,18 +233,16 @@ public class Jmusic {
 				System.out.println("Introduzca la ID de la banda deseada para ver su discografia");
 				int id = entrada.controlaInt();
 				// Busca el posible objeto
-				/*
-				 * for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
-				 * if (listaRepresentante.get(i).getId() == id) { encontrado =
-				 * listaRepresentante.get(i); }
-				 * 
-				 * }
-				 */
-
-				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst()
-						.orElse(new Representante());
+				/*	
+				for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+					if (listaRepresentante.get(i).getId() == id) {
+						encontrado = listaRepresentante.get(i);
+					} 
+					
+				}*/
+				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
 				// Imprime el resultado de la busqueda
-				if (encontrado.getNombre() == null) {
+				if (encontrado.getNombre()==null) {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
 					j++;
 				} else {
@@ -258,216 +255,183 @@ public class Jmusic {
 						}
 					}
 				}
-
+				
 			} while (j > 0);
 		}
 	}
-	
-	/* A PARTIR DE AQUI FERMIN */
-	
-	/**
-	 * Menu Modificar Datos
-	 * 
-	 * @throws IOException
-	 */
+
 	public static void modificarDatos() throws IOException {
-		System.out.println("Por favor, introduzca la ID de la lista de datos para modificar");
-		listarRepreresumido();
-		int id = entrada.controlaInt();
-
-		System.out.println( //Menu Modificar Datos
-				"\n====================\nModificacion\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n0. Salir");
-		int opcion = entrada.controlaInt();
+		
+		int opcion = 0;
+	do {
+		System.out.println(
+				"\n====================\nMenu Modificar\n====================\n1. Editar Representante \n2. Editar Grupo \n3. Salir");
+		boolean b = true;
+		do {
+			try {
+				opcion = sc.nextInt();
+				b = false;
+			} catch (Exception Ex) {
+				b = true;
+				System.out.println ("Por favor introduzca un caracter numerico");
+				sc.nextLine();
+			}
+		} while (b);
+		sc.nextLine();
 		switch (opcion) {
-		case 1: //Modificar Representante
-
-			// ESTE DO WHILE ES EL QUE HE METIDO Y NO FUNCIONA
-			do {
-			System.out.println(
-					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n0. Salir");
-			} while (opcion != 0);
-			int opcion2 = entrada.controlaInt();
-			switch (opcion2) {
-			case 1:
-				System.out.println("Introduzca el nuevo nombre");
-				String nombre2 = sc.nextLine();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						r.setNombre(nombre2);
-					}
-				}
-				System.out.println("Nombre modificado");
-				break;
-			case 2:
-				System.out.println("Introduzca los apellidos");
-				String apellido2 = sc.nextLine();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						r.setNombre(apellido2);
-					}
-				}
-				System.out.println("Apellidos modificados");
-				break;
-			case 3:
-				System.out.println("Introduzca los apellidos");
-				float sueldo2 = entrada.controlaFloat();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						r.setSueldo(sueldo2);
-					}
-				}
-				System.out.println("Sueldo modificado");
-				break;
-			default:
-			}
-			break;
-		case 2: //Modificar grupo
-			System.out.println(
-					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Pais \n0. Salir");
-			int opcion3 = entrada.controlaInt();
-			switch (opcion3) {
-			case 1:
-				System.out.println("Introduzca el nuevo nombre");
-				String nombre2 = sc.nextLine();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						r.getGrupo().setNombre(nombre2);
-					}
-				}
-				System.out.println("Nombre modificado");
-				break;
-			case 2:
-				System.out.println("Introduzca el pais");
-				String pais = sc.nextLine();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						r.getGrupo().setPais(pais);
-					}
-				}
-				System.out.println("Pais modificado");
-				break;
-
-			default:
-				break;
-			}
-			break;
-		case 3: //Modificar discografia
-			for (int i = 0; i < listaRepresentante.size(); i++) {
-				if (listaRepresentante.get(i).getId() == id) {
-					System.out.print(i + 1);
-					System.out.println(listaRepresentante.get(i).getGrupo().getListaCd());
-				}
-			}
-			System.out.println("Por favor, introduzca el numero de CD a modificar");
-			int cd2 = (entrada.controlaInt() - 1);
-			System.out.println(
-					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar anio \n3. Modificar mes \n0. Salir");
-			int opcion4 = entrada.controlaInt();
-
-			switch (opcion4) {
-			case 1:
-				System.out.println("Introduzca el nuevo nombre");
-				String nombre2 = sc.nextLine();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						((Representante) r.getGrupo().getListaCd()).setNombre(nombre2);
-					}
-				}
-				System.out.println("Nombre modificado");
-
-				break;
-			case 2:
-				System.out.println("Introduzca el anio");
-				int anio = entrada.controlaInt();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						LocalDate LocalDate = null;
-						r.getGrupo().getListaCd().get(opcion4).setDate(LocalDate);
-						;
-					}
-				}
-				System.out.println("Pais modificado");
-				break;
-			case 3:
-				int mes;
+		case 1:
+			int j = 0;
+			Representante temp = new Representante();
+			if (listaRepresentante.size() == 0) {
+				System.out.println("No existen Datos Almacenados.");
+			} else {
 				do {
-					System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
-					mes = entrada.controlaInt();
-				} while (mes < 1 || mes > 12);
-				break;
+					j = 0;
+					System.out.println("Por favor Introduzca la ID del representante para Modificar sus datos");
+					listarRepreresumido();
+					int id = entrada.controlaInt();
+					/*
+					 * for (int i = 0; i < listaRepresentante.size(); i++) { if (id ==
+					 * listaRepresentante.get(i).getId()) { temp = listaRepresentante.get(i); } }
+					 */
+
+					temp = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst().orElse(new Representante());
+
+					if (temp.getNombre() != null) {
+						int opcion6 = 0;
+						do {
+							System.out.println(
+									"\n====================\nRepresentante\n====================\n1. Cambiar Nombre \n2. Cambiar Apellido \n3. Cambiar Edad \n4. Cambiar Sueldo \n5. Salir");
+							boolean f = true;
+							do {
+								try {
+									opcion6 = sc.nextInt();
+									f = false;
+								} catch (Exception Ex) {
+									f = true;
+									System.out.println ("Por favor introduzca un caracter numerico");
+									sc.nextLine();
+								}
+							} while (f);
+							sc.nextLine();
+							switch (opcion6) {
+							
+							case 1:
+								System.out.println("Por favor, introduzca el nuevo Nombre del Representante");
+								temp.setNombre(sc.nextLine());
+								break;
+							case 2:
+								System.out.println("Por favor, introduzca el nuevo Apellido del Representante");
+								temp.setApellido(sc.nextLine());
+								break;
+							case 3:
+								System.out.println("Por favor, introduzca la nueva Edad del Representante");
+								temp.setEdad(entrada.controlaInt());
+								break;
+							case 4:
+								System.out.println("Por favor, introduzca el nuevo Sueldo del Representante");
+								temp.setSueldo(entrada.controlaFloat());
+								break;
+							case 5:
+								System.out.println("Guardando en la base de datos...\n\nGuardado");
+								break;
+
+							default:
+								System.out.println("Por favor seleccione una opcion correcta");
+								break;
+							}
+
+						} while (opcion6 != 5);
+						
+					} else {
+						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+						j++;
+					}
+				} while (j > 0);
 			}
+		
+			break;
+		case 2:
+			
+			int k = 0;
+			if (listaRepresentante.isEmpty()) {
+				System.out.println("No existen Datos almacenados");
+			} else {
+				do {
+					k = 0;
+
+					for (int i = 0; i < listaRepresentante.size(); i++) {
+						System.out.println((i + 1) + ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre()
+								+ " cuya ID es " + listaRepresentante.get(i).getId() + "\n");
+					}
+					System.out.println("Introduzca la ID de la banda deseada para modificar sus datos");
+					int id = entrada.controlaInt();
+					Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
+				
+					/*for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+						if (listaRepresentante.get(i).getId() == id) {
+							encontrado = listaRepresentante.get(i);
+						} 
+						
+					}*/
+					
+					// Imprime el resultado de la busqueda
+					if (encontrado.getNombre()==null) {
+						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+						k++;
+					} else {
+						int opcion2 = 0;
+						do {
+							System.out.println(
+									"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Pais \n3. Salir");
+							boolean d = true;
+							do {
+								try {
+									opcion2 = sc.nextInt();
+									d = false;
+								} catch (Exception Ex) {
+									d = true;
+									System.out.println ("Por favor introduzca un caracter numerico");
+									sc.nextLine();
+								}
+							} while (d);
+							sc.nextLine();
+							switch (opcion2) {
+							case 1:
+								System.out.println("Por favor, introduzca el nuevo nombre de la Banda Musical");
+								encontrado.getGrupo().setNombre(sc.nextLine());
+								break;
+							case 2:
+								System.out.println("Por favor, introduzca el nuevo Pais de la Banda Musical");
+								encontrado.getGrupo().setPais(sc.nextLine());
+								break;
+							case 3:
+								System.out.println("Guardando en la base de datos...\n\nGuardado");
+								break;
+
+							default:
+								System.out.println("Por favor seleccione una opcion correcta");
+								break;
+							}
+
+						} while (opcion2 != 3);
+						
+					}
+					
+				} while (k > 0);
+			}
+			
+			break;
+		case 3:
+			System.out.println("Guardando en la base de datos...\n\nGuardado");
+			break;
+
+		default:
+			System.out.println("Por favor seleccione una opcion correcta");
 			break;
 		}
-	}
-}
 
-/**
- * public static void modificarDatos() throws IOException {
- * System.out.println("Por favor, introduzca la ID de la lista de datos para
- * modificar"); listarRepreresumido(); int id = entrada.controlaInt();
- * 
- * System.out.println(
- * "\n====================\nModificacion\n====================\n1. Modificar
- * Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. Salir");
- * int opcion = entrada.controlaInt();
- * 
- * do { boolean b = true; do { System.out.println("Numero introducido erroneo");
- * try { opcion = sc.nextInt(); b = false; } catch (Exception Ex) { b = true;
- * System.out.println("Numero introducido erroneo"); sc.nextLine(); } } while
- * (b);
- * 
- * switch (opcion) { case 1: System.out.println(
- * "\n====================\nModificacion\n====================\n1. Modificar
- * Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n5.
- * Salir"); int opcion2 = entrada.controlaInt(); switch (opcion2) { case 1:
- * System.out.println("Introduzca el nuevo nombre"); String nombre2 =
- * sc.nextLine(); for (Representante r : listaRepresentante) { if (r.getId() ==
- * id) { r.setNombre(nombre2); } } System.out.println("Nombre modificado");
- * break; case 2: System.out.println("Introduzca los apellidos"); String
- * apellido2 = sc.nextLine(); for (Representante r : listaRepresentante) { if
- * (r.getId() == id) { r.setNombre(apellido2); } } System.out.println("Apellidos
- * modificados"); break; case 3: System.out.println("Introduzca el nuevo
- * sueldo"); float sueldo2 = entrada.controlaFloat(); for (Representante r :
- * listaRepresentante) { if (r.getId() == id) { r.setSueldo(sueldo2); } }
- * System.out.println("Sueldo modificado"); break; case 4:
- * System.out.println("Introduzca la edad"); int edad2 = entrada.controlaInt();
- * for (Representante r : listaRepresentante) { if (r.getId() == id) {
- * r.setEdad(edad2); } } System.out.println("Edad modificada"); break; default:
- * } break; case 2: System.out.println(
- * "\n====================\nModificacion\n====================\n1. Modificar
- * Nombre \n2. Modificar Pais \n3. Salir"); int opcion3 = entrada.controlaInt();
- * switch (opcion3) { case 1: System.out.println("Introduzca el nuevo nombre");
- * String nombre2 = sc.nextLine(); for (Representante r : listaRepresentante) {
- * if (r.getId() == id) { r.getGrupo().setNombre(nombre2); } }
- * System.out.println("Nombre modificado"); break; case 2:
- * System.out.println("Introduzca el pais"); String pais = sc.nextLine(); for
- * (Representante r : listaRepresentante) { if (r.getId() == id) {
- * r.getGrupo().setPais(pais); } } System.out.println("Pais modificado"); break;
- * 
- * default: break; } break; case 3: for (int i = 0; i <
- * listaRepresentante.size(); i++) { if (listaRepresentante.get(i).getId() ==
- * id) { System.out.print(i + 1);
- * System.out.println(listaRepresentante.get(i).getGrupo().getListaCd()); } }
- * System.out.println("Por favor, introduzca el numero de CD a modificar"); int
- * cd2 = (entrada.controlaInt() - 1);
- * 
- * System.out.println(
- * "\n====================\nModificacion\n====================\n1. Modificar
- * Nombre \n2. Modificar anio \n3. Modificar mes \n4. Salir"); int opcion4 =
- * entrada.controlaInt();
- * 
- * switch (opcion4) { case 1: System.out.println("Introduzca el nuevo nombre");
- * String nombre2 = sc.nextLine(); for (Representante r : listaRepresentante) {
- * if (r.getId() == id) { ((Representante)
- * r.getGrupo().getListaCd()).setNombre(nombre2); } } System.out.println("Nombre
- * modificado");
- * 
- * break; case 2: System.out.println("Introduzca el anio"); int anio =
- * entrada.controlaInt(); for (Representante r : listaRepresentante) { if
- * (r.getId() == id) { LocalDate LocalDate = null;
- * r.getGrupo().getListaCd().get(opcion4).setDate(LocalDate); ; } }
- * System.out.println("Pais modificado"); break; case 3: int mes; do {
- * System.out.println("Por favor, introduzca el numero de mes de la publicacion
- * del disco"); mes = entrada.controlaInt(); } while (mes < 1 || mes > 12);
- * break; } break; } } while (opcion != 4); }
- **/
+	} while (opcion != 3);
+	
+}
+}
