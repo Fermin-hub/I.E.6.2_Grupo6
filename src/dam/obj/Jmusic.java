@@ -190,8 +190,8 @@ public class Jmusic {
 		} else {
 			do {
 				j = 0;
-				listarRepreresumido();
 				System.out.println("Por favor Introduzca la ID del representante para borrar todos los datos");
+				listarRepreresumido();
 				int id = entrada.controlaInt();
 				/*
 				 * for (int i = 0; i < listaRepresentante.size(); i++) { if (id ==
@@ -202,7 +202,7 @@ public class Jmusic {
 
 				if (temp.getNombre() != null) {
 					System.out.println("El representante " + temp.getNombre() + " con ID " + temp.getId()
-							+ " ha sido eliminado correctamente junto con los datos almacenados"); // MANUEL POR DIOS, ES JUNTO POR DIOS XD
+							+ " ha sido eliminado correctamente juntos con los datos almacenados");
 					listaRepresentante.remove(temp);
 				} else {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
@@ -232,17 +232,30 @@ public class Jmusic {
 				}
 				System.out.println("Introduzca la ID de la banda deseada para ver su discografia");
 				int id = entrada.controlaInt();
-				for (Representante r : listaRepresentante) {
-					if (r.getId() == id) {
-						System.out.println("La discografia de la banda solicitada esta compuesta por:\n");
-						for (Cd cd : r.getGrupo().getListaCd()) {
+				// Busca el posible objeto
+				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
+						
+//				for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+//					if (listaRepresentante.get(i).getId() == id) {
+//						encontrado = listaRepresentante.get(i);
+//					} 
+//					
+//				}
+				// Imprime el resultado de la busqueda
+				if (encontrado.getNombre()==null) {
+					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+					j++;
+				} else {
+					System.out.println("La discografia de la banda solicitada esta compuesta por:\n");
+					if (encontrado.getGrupo().getListaCd().isEmpty()) {
+						System.out.println("Este grupo musical no contiene discografia aun.");
+					} else {
+						for (Cd cd : encontrado.getGrupo().getListaCd()) {
 							System.out.println(cd.toString());
 						}
-					} else {
-						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
-						j++;
 					}
 				}
+				
 			} while (j > 0);
 		}
 	}

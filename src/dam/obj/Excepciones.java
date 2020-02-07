@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 /**
 * Clase Excepciones
-* @author: Fermin Jimenez
+* @author: Fermin Jimenez Manuel Corona y Daniel Garcia
 * @version: 12/11/2019
 * 
 */
