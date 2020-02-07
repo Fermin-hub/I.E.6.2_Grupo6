@@ -81,7 +81,7 @@ public class Jmusic {
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * A�ade Representante y Grupo
+	 * Aniaade Representante y Grupo
 	 * 
 	 * @throws IOException
 	 */
@@ -125,7 +125,7 @@ public class Jmusic {
 				System.out.println("Por favor, introduzca el nombre del Disco");
 				String nombrecd = sc.nextLine();
 				int anodisco = 0, dia = 0, mes = 0;
-				System.out.println("Por favor, introduzca el a�o de publicacion del disco");
+				System.out.println("Por favor, introduzca el anio de publicacion del disco");
 				anodisco = entrada.controlaInt();
 				do {
 					System.out.println("Por favor, introduzca el numero de mes de la publicacion del disco");
