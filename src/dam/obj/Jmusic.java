@@ -81,7 +81,7 @@ public class Jmusic {
 	private static Excepciones entrada = new Excepciones();
 
 	/**
-	 * Aniade Representante y Grupo
+	 * Agrega Representante y Grupo
 	 * 
 	 * @throws IOException
 	 */
