@@ -8,8 +8,8 @@ import java.util.Set;
 
 /**
  * 
- * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 02/2020
+ * @author Fermin Jimenez, Manuel Corona, Daniel Garcia.
+ * @version 1.0
  * 
  */
 
@@ -29,18 +29,8 @@ public class Jmusic {
 		 * Switch case
 		 */
 		do {
-			boolean b = true;
-			do {
-				Menu.menu();
-				try {
-					opcion = sc.nextInt();
-					b = false;
-				} catch (Exception Ex) {
-					b = true;
-					System.out.println("Numero introducido erroneo");
-					sc.nextLine();
-				}
-			} while (b);
+			Menu.menu();
+			opcion = entrada.controlaInt();
 			switch (opcion) {
 			case 1:
 				agregarDatos();
@@ -57,9 +47,12 @@ public class Jmusic {
 			case 5:
 				eliminarDatos();
 				break;
+			case 0:
+				System.out.println("Saliendo del Programa..\nGuardando en la base de datos...\n\nGuardado & Log out.");
+				break;
 
 			default:
-				System.out.println("Guardando en la base de datos...\n\nGuardado");
+				System.out.println("Por favor seleccione una opcion correcta");
 				break;
 			}
 			sc.nextLine();
@@ -82,7 +75,7 @@ public class Jmusic {
 	/**
 	 * A�ade Representante y Grupo
 	 * 
-	 * @throws IOException
+	 * @throws IOException excepcion
 	 */
 	public static void agregarDatos() throws IOException {
 		List<Cd> temp = new ArrayList<Cd>(); // arraylist temporal para introducir los CD
@@ -107,18 +100,7 @@ public class Jmusic {
 		do {
 			System.out
 					.println("\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
-			boolean b = true;
-			do {
-				try {
-					opcion = sc.nextInt();
-					b = false;
-				} catch (Exception Ex) {
-					b = true;
-					System.out.println("Por favor introduzca un caracter numerico");
-					sc.nextLine();
-				}
-			} while (b);
-			sc.nextLine();
+			opcion = entrada.controlaInt();
 			switch (opcion) {
 			case 1:
 				System.out.println("Por favor, introduzca el nombre del Disco");
@@ -180,7 +162,7 @@ public class Jmusic {
 	/**
 	 * Eliminar representante, grupo y cd
 	 * 
-	 * @throws IOException
+	 * @throws IOException excepcion
 	 */
 	public static void eliminarDatos() throws IOException { // Metodo para eliminar los representantes.
 		int j = 0;
@@ -216,7 +198,7 @@ public class Jmusic {
 	/**
 	 * Lista los CD del grupo
 	 * 
-	 * @throws IOException
+	 * @throws IOException excepcion
 	 */
 	public static void buscarDiscografia() throws IOException {
 		int j = 0;
@@ -260,7 +242,11 @@ public class Jmusic {
 			} while (j > 0);
 		}
 	}
-
+	
+	/**
+	 * Metodo para modificar los datos.
+	 * @throws IOException excepcion
+	 */
 	public static void modificarDatos() throws IOException {
 
 		int opcion = 0;
@@ -450,7 +436,6 @@ public class Jmusic {
 									}
 									break;
 								case 2:
-									// System.out.println("Por favor, introduzca el nuevo A�o del CD");
 									System.out.println("Por favor, escriba el nombre del CD que desea cambiar");
 									String nombre2 = sc.nextLine();
 

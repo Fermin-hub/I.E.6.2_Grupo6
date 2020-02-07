@@ -2,41 +2,43 @@ package dam.obj;
 
 /**
  * 
- * @author: Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 02/2020
+ * @author Fermin Jimenez, Manuel Corona, Daniel Garcia.
+ * @version 1.0
  * 
  */
 public class Representante {
-	
+
 	/**
 	 * Variables
-	 * @param nombre, Nombre del Representante
+	 * 
+	 * @param nombre,   Nombre del Representante
 	 * @param apellido, Apellido del Representante
-	 * @param edad, Edad del Representante
-	 * @param id, ID del Representante
-	 * @param sueldo, Sueldo del Representante
-	 * @param grupo, Grupo del Representante
+	 * @param edad,     Edad del Representante
+	 * @param id,       ID del Representante
+	 * @param sueldo,   Sueldo del Representante
+	 * @param grupo,    Grupo del Representante
 	 */
 	private String nombre, apellido;
 	private int edad, id;
 	private static int id2 = 100;
 	private float sueldo;
 	private Grupo grupo;
-	
+
 	/**
 	 * Constructor vacio
 	 */
 	public Representante() {
-		
+
 	}
-	
+
 	/**
 	 * Constructor
-	 * @param nombre, Nombre del Representante
+	 * 
+	 * @param nombre,   Nombre del Representante
 	 * @param apellido, Apellido del Representante
-	 * @param edad, Edad del Representante
-	 * @param sueldo, Sueldo del Representante
-	 * @param grupo, Grupo del Representante
+	 * @param edad,     Edad del Representante
+	 * @param sueldo,   Sueldo del Representante
+	 * @param grupo,    Grupo del Representante
 	 */
 	public Representante(String nombre, String apellido, int edad, float sueldo, Grupo grupo) {
 		this.nombre = nombre;
@@ -44,13 +46,11 @@ public class Representante {
 		this.edad = edad;
 		this.sueldo = sueldo;
 		this.grupo = grupo;
-		id2++; 
+		id2++;
 		id = id2;
 	}
 
-	/**
-	 * Getters y Setters
-	 */
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -104,7 +104,7 @@ public class Representante {
 	 */
 	@Override
 	public String toString() {
-		return "ID: " + id + " - El manager " + nombre + " " + apellido + " representa al grupo musical '" + grupo + "'."
-				+ " Su discografia esta formada por: ";
+		return "ID: " + id + " - El manager " + nombre + " " + apellido + " representa al grupo musical '" + grupo
+				+ "'." + " Su discografia esta formada por: ";
 	}
 }

@@ -5,34 +5,33 @@ import java.time.LocalDate;
 /**
  * 
  * @author Fermin Jimenez, Manuel Corona, Daniel Garcia.
- * @version: 02/2020
+ * @version 1.0
  *
  */
 
 public class Cd {
-	
+
 	/**
 	 * Atributos
 	 */
 	private String nombre;
 	private LocalDate date;
-	
+
 	/**
 	 * Constructor
+	 * 
 	 * @param nombre CD
-	 * @param anio anio de publicacion del disco
-	 * @param mes mes de publicacion del disco
-	 * @param dia dia de publicacion del disco
+	 * @param anio   anio de publicacion del disco
+	 * @param mes    mes de publicacion del disco
+	 * @param dia    dia de publicacion del disco
 	 */
 	public Cd(String nombre, int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
 		this.nombre = nombre;
 
 	}
+
 	
-	/**
-	 * Getters y Setters
-	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -49,9 +48,12 @@ public class Cd {
 		this.date = date;
 	}
 	
-	public void modificarfecha(int anio,int mes, int dia) {
+	/*
+	 * metodo para modificar las fechas de los CD
+	 */
+	public void modificarfecha(int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
-		
+
 	}
 
 	/**
