@@ -50,7 +50,7 @@ public class Jmusic {
 				visualizarDatos();
 				break;
 			case 3:
-				modificarRepresentante();
+				modificarDatos();
 				break;
 			case 4:
 				buscarDiscografia();
