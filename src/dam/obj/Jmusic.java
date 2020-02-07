@@ -233,14 +233,14 @@ public class Jmusic {
 				System.out.println("Introduzca la ID de la banda deseada para ver su discografia");
 				int id = entrada.controlaInt();
 				// Busca el posible objeto
+				/*	
+				for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+					if (listaRepresentante.get(i).getId() == id) {
+						encontrado = listaRepresentante.get(i);
+					} 
+					
+				}*/
 				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
-						
-//				for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
-//					if (listaRepresentante.get(i).getId() == id) {
-//						encontrado = listaRepresentante.get(i);
-//					} 
-//					
-//				}
 				// Imprime el resultado de la busqueda
 				if (encontrado.getNombre()==null) {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
@@ -267,54 +267,54 @@ public class Jmusic {
 	 */
 
 	/*
-	 * public static void modificarRepresentante() throws IOException { //Metodo
-	 * para modificar Representantes
-	 * 
-	 * System.out.
-	 * println("Lista para consultar el ID de cada representante, y modificar los datos necesarios"
-	 * ); listarRepreresumido(); //Lista los representantes con su ID int id =
-	 * System.out.println("Introduzca el ID del representante a modificar:"); for
-	 * (Representante r : listaRepresentante) { if (r.getId() == id) {//Modifica
-	 * nombre String nombre = System.out.println("Modifique el nombre: ");
-	 * r.setNombre(nombre); //Modifica apellido String apellido =
-	 * System.out.println("Modifique el apellido: "); r.setApellido(apellido);
-	 * //Modifica edad /*int edad = System.out.println("Modifique la edad: ");
-	 * r.setEdad(edad); //Modifica sueldo float sueldo =
-	 * JOptionPane.showInputDialog("Modifique el sueldo: "); r.setSueldo(sueldo);
-	 * //Modifica grupo Grupo = System.out.println("Modifique el Grupo: ");
-	 * r.setgrupo(Grupo);
-	 * 
-	 * 
-	 * System.out.println("El Representante " + r.getId() +
-	 * " ha sido editado satisfactoriamente"); } } } /* public static void
-	 * modificarGrupo() throws IOException { //Metodo para modificar Grupos de
-	 * Musica
-	 * 
-	 * int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
-	 * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	 * == n) { //REVISAR MA�ANA EN CLASE
-	 * 
-	 * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
-	 * nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
-	 * JOptionPane.showInputDialog("Modifique el pais: "); r.setApellido(pais);
-	 * 
-	 * System.out.println("El Grupo " + r.getGrupo() + " ha sido editado
-	 * satisfactoriamente"); } } }
-	 * 
-	 * public static void modificarCD() throws IOException { //Metodo para modificar
-	 * CD
-	 * 
-	 * int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
-	 * modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
-	 * == cd) { //REVISAR MA�ANA EN CLASE
-	 * 
-	 * //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
-	 * nombre: "); r.setNombre(nombre); //Modifica fecha String date =
-	 * JOptionPane.showInputDialog("Modifique el a�o de publicacion: ");
-	 * r.setDate(date);
-	 * 
-	 * System.out.println("El Representante " + r.getId() + " ha sido editado
-	 * satisfactoriamente"); } } }
+	  public static void modificarRepresentante() throws IOException { //Metodo
+	  para modificar Representantes
+	  
+	  System.out.
+	  println("Lista para consultar el ID de cada representante, y modificar los datos necesarios"
+	  ); listarRepreresumido(); //Lista los representantes con su ID int id =
+	 System.out.println("Introduzca el ID del representante a modificar:"); for
+	  (Representante r : listaRepresentante) { if (r.getId() == id) {//Modifica
+	  nombre String nombre = System.out.println("Modifique el nombre: ");
+	  r.setNombre(nombre); //Modifica apellido String apellido =
+	  System.out.println("Modifique el apellido: "); r.setApellido(apellido);
+	  //Modifica edad /*int edad = System.out.println("Modifique la edad: ");
+	  r.setEdad(edad); //Modifica sueldo float sueldo =
+	  JOptionPane.showInputDialog("Modifique el sueldo: "); r.setSueldo(sueldo);
+	  //Modifica grupo Grupo = System.out.println("Modifique el Grupo: ");
+	  r.setgrupo(Grupo);
+	  
+	  
+	  System.out.println("El Representante " + r.getId() +
+	  " ha sido editado satisfactoriamente"); } } } /* public static void
+	  modificarGrupo() throws IOException { //Metodo para modificar Grupos de
+	  Musica
+	  
+	  int n = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el Grupo a
+	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
+	  == n) { //REVISAR MA�ANA EN CLASE
+	  
+	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
+	  nombre: "); r.setNombre(nombre); //Modifica apellido String pais =
+	  JOptionPane.showInputDialog("Modifique el pais: "); r.setApellido(pais);
+	  
+	  System.out.println("El Grupo " + r.getGrupo() + " ha sido editado
+	  satisfactoriamente"); } } }
+	  
+	  public static void modificarCD() throws IOException { //Metodo para modificar
+	  CD
+	  
+	  int cd = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el CD a
+	  modificar:")); for (Representante r : listaRepresentante) { if (r.getNombre()
+	  == cd) { //REVISAR MA�ANA EN CLASE
+	  
+	  //Modifica nombre String nombre = JOptionPane.showInputDialog("Modifique el
+	  nombre: "); r.setNombre(nombre); //Modifica fecha String date =
+	  JOptionPane.showInputDialog("Modifique el a�o de publicacion: ");
+	  r.setDate(date);
+	  
+	  System.out.println("El Representante " + r.getId() + " ha sido editado
+	  satisfactoriamente"); } } }
 	 */
 
 	// **************************
@@ -322,56 +322,56 @@ public class Jmusic {
 	// ********************************
 	// Metodo Alternativo para modificacion de datos.
 	/*
-	 * public static void modificarDatos() throws IOException {
-	 * 
-	 * if (listaRepresentante.isEmpty()) {
-	 * System.out.println("No existen Datos almacenados"); } else { int opcion = 0;
-	 * do { System.out.println(
-	 * "\n====================\nMenu Modificaciones\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. No realizar mas cambios"
-	 * ); boolean b = true; do { try { opcion = sc.nextInt(); b = false; } catch
-	 * (Exception Ex) { b = true;
-	 * System.out.println("Por favor introduzca un caracter numerico");
-	 * sc.nextLine(); } } while (b); sc.nextLine(); switch (opcion) { case 1: int j
-	 * = 0; int k = 0; do { j = 0; listarRepreresumido();
-	 * System.out.println("Introduzca la ID del representante que desea modificar");
-	 * int id = entrada.controlaInt(); for (Representante r : listaRepresentante) {
-	 * if (r.getId() == id) { System.out.println("Modifique su nombre: ");
-	 * r.setNombre(sc.nextLine()); System.out.println("Modifique su apellido: ");
-	 * r.setApellido(sc.nextLine()); System.out.println("Modifique su edad: ");
-	 * r.setEdad(entrada.controlaInt());
-	 * System.out.println("Modifique su sueldo: ");
-	 * r.setSueldo(entrada.controlaInt()); System.out.println( "El Representante " +
-	 * r.getId() + " ha sido editado satisfactoriamente"); } else { System.out
-	 * .println("El ID introducido no es correcto por favor introduzca un ID valido"
-	 * ); j++; k++; } } if (k > 0) { System.out.
-	 * println("El ID introducido no es correcto por favor introduzca un ID valido"
-	 * ); } } while (j > 0);
-	 * 
-	 * break; case 2: int l = 0; int m = 0; do { l = 0; for (int i = 0; i <
-	 * listaRepresentante.size(); i++) { System.out.println( (i + 1) +
-	 * ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre() +
-	 * " cuya ID es " + listaRepresentante.get(i).getId() + "\n"); }
-	 * System.out.println("Introduzca la ID de la banda que desea modificar"); int
-	 * id = entrada.controlaInt(); for (Representante r : listaRepresentante) { if
-	 * (r.getId() == id) { System.out.println("Modifique su nombre: ");
-	 * r.getGrupo().setNombre(sc.nextLine());
-	 * System.out.println("Modifique su pais: ");
-	 * r.getGrupo().setPais(sc.nextLine());
-	 * System.out.println("La Banda Musical ha sido editada satisfactoriamente"); }
-	 * else { System.out
-	 * .println("El ID introducido no es correcto por favor introduzca un ID valido"
-	 * ); l++; m++; } } if (m > 0) { System.out.
-	 * println("El ID introducido no es correcto por favor introduzca un ID valido"
-	 * ); } } while (l > 0);
-	 * 
-	 * break; case 3:
-	 * System.out.println("Guardando en la base de datos...\n\nGuardado"); break;
-	 * case 4: System.out.println("Guardando en la base de datos...\n\nGuardado");
-	 * break;
-	 * 
-	 * default: System.out.println("Por favor seleccione una opcion correcta");
-	 * break; }
-	 * 
-	 * } while (opcion != 4); } }
+	  public static void modificarDatos() throws IOException {
+	  
+	  if (listaRepresentante.isEmpty()) {
+	  System.out.println("No existen Datos almacenados"); } else { int opcion = 0;
+	  do { System.out.println(
+	  "\n====================\nMenu Modificaciones\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n4. No realizar mas cambios"
+	  ); boolean b = true; do { try { opcion = sc.nextInt(); b = false; } catch
+	  (Exception Ex) { b = true;
+	  System.out.println("Por favor introduzca un caracter numerico");
+	  sc.nextLine(); } } while (b); sc.nextLine(); switch (opcion) { case 1: int j
+	  = 0; int k = 0; do { j = 0; listarRepreresumido();
+	  System.out.println("Introduzca la ID del representante que desea modificar");
+	  int id = entrada.controlaInt(); for (Representante r : listaRepresentante) {
+	  if (r.getId() == id) { System.out.println("Modifique su nombre: ");
+	  r.setNombre(sc.nextLine()); System.out.println("Modifique su apellido: ");
+	  r.setApellido(sc.nextLine()); System.out.println("Modifique su edad: ");
+	  r.setEdad(entrada.controlaInt());
+	  System.out.println("Modifique su sueldo: ");
+	  r.setSueldo(entrada.controlaInt()); System.out.println( "El Representante " +
+	  r.getId() + " ha sido editado satisfactoriamente"); } else { System.out
+	  .println("El ID introducido no es correcto por favor introduzca un ID valido"
+	  ); j++; k++; } } if (k > 0) { System.out.
+	  println("El ID introducido no es correcto por favor introduzca un ID valido"
+	  ); } } while (j > 0);
+	  
+	  break; case 2: int l = 0; int m = 0; do { l = 0; for (int i = 0; i <
+	  listaRepresentante.size(); i++) { System.out.println( (i + 1) +
+	  ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre() +
+	  " cuya ID es " + listaRepresentante.get(i).getId() + "\n"); }
+	  System.out.println("Introduzca la ID de la banda que desea modificar"); int
+	  id = entrada.controlaInt(); for (Representante r : listaRepresentante) { if
+	  (r.getId() == id) { System.out.println("Modifique su nombre: ");
+	  r.getGrupo().setNombre(sc.nextLine());
+	  System.out.println("Modifique su pais: ");
+	  r.getGrupo().setPais(sc.nextLine());
+	  System.out.println("La Banda Musical ha sido editada satisfactoriamente"); }
+	  else { System.out
+	  .println("El ID introducido no es correcto por favor introduzca un ID valido"
+	  ); l++; m++; } } if (m > 0) { System.out.
+	  println("El ID introducido no es correcto por favor introduzca un ID valido"
+	  ); } } while (l > 0);
+	  
+	  break; case 3:
+	  System.out.println("Guardando en la base de datos...\n\nGuardado"); break;
+	  case 4: System.out.println("Guardando en la base de datos...\n\nGuardado");
+	  break;
+	  
+	  default: System.out.println("Por favor seleccione una opcion correcta");
+	  break; }
+	  
+	 } while (opcion != 4); } }
 	 */
 }
