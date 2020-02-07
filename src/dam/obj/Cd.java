@@ -54,7 +54,7 @@ public class Cd {
 	 */
 	@Override
 	public String toString() {
-		return getNombre() + " Cuyo CD fue lanzado en " + getDate();
+		return getNombre() + " cuyo CD fue lanzado en " + getDate();
 	}
 
 }
