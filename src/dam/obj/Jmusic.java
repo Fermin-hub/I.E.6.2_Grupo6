@@ -267,18 +267,7 @@ public class Jmusic {
 		do {
 			System.out.println(
 					"\n====================\nMenu Modificar\n====================\n1. Editar Representante \n2. Editar Grupo \n3. Editar Discografia \n4. Salir");
-			boolean b = true;
-			do {
-				try {
-					opcion = sc.nextInt();
-					b = false;
-				} catch (Exception Ex) {
-					b = true;
-					System.out.println("Por favor introduzca un caracter numerico");
-					sc.nextLine();
-				}
-			} while (b);
-			sc.nextLine();
+			opcion=entrada.controlaInt();
 			switch (opcion) {
 			case 1:
 				int j = 0;
@@ -304,18 +293,7 @@ public class Jmusic {
 							do {
 								System.out.println(
 										"\n====================\nRepresentante\n====================\n1. Cambiar Nombre \n2. Cambiar Apellido \n3. Cambiar Edad \n4. Cambiar Sueldo \n5. Salir");
-								boolean f = true;
-								do {
-									try {
-										opcion6 = sc.nextInt();
-										f = false;
-									} catch (Exception Ex) {
-										f = true;
-										System.out.println("Por favor introduzca un caracter numerico");
-										sc.nextLine();
-									}
-								} while (f);
-								sc.nextLine();
+								opcion6=entrada.controlaInt();
 								switch (opcion6) {
 
 								case 1:
@@ -389,18 +367,7 @@ public class Jmusic {
 							do {
 								System.out.println(
 										"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Pais \n3. Salir");
-								boolean d = true;
-								do {
-									try {
-										opcion2 = sc.nextInt();
-										d = false;
-									} catch (Exception Ex) {
-										d = true;
-										System.out.println("Por favor introduzca un caracter numerico");
-										sc.nextLine();
-									}
-								} while (d);
-								sc.nextLine();
+								opcion2=entrada.controlaInt();
 								switch (opcion2) {
 								case 1:
 									System.out.println("Por favor, introduzca el nuevo nombre de la Banda Musical");
@@ -466,18 +433,7 @@ public class Jmusic {
 							do {
 								System.out.println(
 										"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Fecha \n3. Salir");
-								boolean x = true;
-								do {
-									try {
-										opcion8 = sc.nextInt();
-										x = false;
-									} catch (Exception Ex) {
-										x = true;
-										System.out.println("Por favor introduzca un caracter numerico");
-										sc.nextLine();
-									}
-								} while (x);
-								sc.nextLine();
+								opcion8=entrada.controlaInt();
 								switch (opcion8) {
 
 								case 1:
@@ -494,13 +450,13 @@ public class Jmusic {
 									}
 									break;
 								case 2:
-									// System.out.println("Por favor, introduzca el nuevo Año del CD");
+									// System.out.println("Por favor, introduzca el nuevo Aï¿½o del CD");
 									System.out.println("Por favor, escriba el nombre del CD que desea cambiar");
 									String nombre2 = sc.nextLine();
 
 									if (encontrado.getGrupo().encontrarCD(nombre2) == true) {
 										int anodisco = 0, dia = 0, mes = 0;
-										System.out.println("Por favor, introduzca el año de publicacion del disco");
+										System.out.println("Por favor, introduzca el aï¿½o de publicacion del disco");
 										anodisco = entrada.controlaInt();
 										do {
 											System.out.println(
