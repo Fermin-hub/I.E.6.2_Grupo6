@@ -263,6 +263,8 @@ public class Jmusic {
 		}
 	}
 	
+	/* A PARTIR DE AQUI FERMIN */
+	
 	/**
 	 * Menu Modificar Datos
 	 * 
@@ -278,8 +280,12 @@ public class Jmusic {
 		int opcion = entrada.controlaInt();
 		switch (opcion) {
 		case 1: //Modificar Representante
+
+			// ESTE DO WHILE ES EL QUE HE METIDO Y NO FUNCIONA
+			do {
 			System.out.println(
 					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n0. Salir");
+			} while (opcion != 0);
 			int opcion2 = entrada.controlaInt();
 			switch (opcion2) {
 			case 1:
