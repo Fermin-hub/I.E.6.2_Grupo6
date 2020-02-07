@@ -32,11 +32,11 @@ public class Representante {
 	
 	/**
 	 * Constructor
-	 * @param nombre
-	 * @param apellido
-	 * @param edad
-	 * @param sueldo
-	 * @param grupo
+	 * @param nombre, Nombre del Representante
+	 * @param apellido, Apellido del Representante
+	 * @param edad, Edad del Representante
+	 * @param sueldo, Sueldo del Representante
+	 * @param grupo, Grupo del Representante
 	 */
 	public Representante(String nombre, String apellido, int edad, float sueldo, Grupo grupo) {
 		this.nombre = nombre;
@@ -50,7 +50,6 @@ public class Representante {
 
 	/**
 	 * Getters y Setters
-	 * @return
 	 */
 	public String getNombre() {
 		return nombre;

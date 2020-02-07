@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
 * Clase Excepciones
 * @author: Fermin Jimenez
-* @version: 02/2020
+* @version: 12/11/2019
 * 
 */
 

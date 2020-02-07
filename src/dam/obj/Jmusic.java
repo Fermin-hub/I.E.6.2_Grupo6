@@ -68,10 +68,10 @@ public class Jmusic {
 	}
 
 	/**
-	 * Variables estï¿½ticas
+	 * Variables estaticas
 	 * 
 	 * @param listaRepresentante, arraylist de Representantes
-	 * @param entrada,            para leer excepciones
+	 * @param entrada, para leer excepciones
 	 */
 	static Scanner sc = new Scanner(System.in);
 
@@ -106,7 +106,7 @@ public class Jmusic {
 		 */
 		do {
 			System.out.println(
-					"\n====================\nMenu Discografia\n====================\n1. Agregar Disco \n2. Salir");
+					"\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
 			boolean b = true;
 			do {
 				try {
@@ -114,7 +114,7 @@ public class Jmusic {
 					b = false;
 				} catch (Exception Ex) {
 					b = true;
-					System.out.println("Por favor introduzca un caracter numerico");
+					System.out.println ("Por favor introduzca un caracter numerico");
 					sc.nextLine();
 				}
 			} while (b);
@@ -172,10 +172,8 @@ public class Jmusic {
 	 * Lista solo los REPRESENTANTES
 	 */
 	public static void listarRepreresumido() {
-
 		for (Representante r : listaRepresentante) {
 			System.out.println("ID: " + r.getId() + " - El Manager " + r.getNombre() + " " + r.getApellido());
-
 		}
 	}
 
@@ -315,7 +313,7 @@ public class Jmusic {
 	 */
 
 	// **************************
-	// ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	// ********************************
 	// Metodo Alternativo para modificacion de datos.
 /*

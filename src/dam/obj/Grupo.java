@@ -27,7 +27,6 @@ public class Grupo {
 
 	/**
 	 * Getters y Setters
-	 * @return
 	 */
 	public String getNombre() {
 		return nombre;
@@ -48,7 +47,7 @@ public class Grupo {
 	/**
 	 * Get y Set de ListaCd
 	 * Ordena con sorted por nombre de CD
-	 * @return
+	 * @return lista ordenada por nombre
 	 */
 	public List<Cd> getListaCd() { // Ordena con sorted por nombre de CD
 		return listaCd.stream().sorted(Comparator.comparing(Cd::getNombre)).collect(Collectors.toList());

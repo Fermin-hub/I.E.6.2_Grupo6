@@ -19,10 +19,10 @@ public class Cd {
 	
 	/**
 	 * Constructor
-	 * @param nombre
-	 * @param anio
-	 * @param mes
-	 * @param dia
+	 * @param nombre CD
+	 * @param anio anio de publicacion del disco
+	 * @param mes mes de publicacion del disco
+	 * @param dia dia de publicacion del disco
 	 */
 	public Cd(String nombre, int anio, int mes, int dia) {
 		this.date = LocalDate.of(anio, mes, dia);
@@ -32,7 +32,6 @@ public class Cd {
 	
 	/**
 	 * Getters y Setters
-	 * @return
 	 */
 	public String getNombre() {
 		return nombre;
