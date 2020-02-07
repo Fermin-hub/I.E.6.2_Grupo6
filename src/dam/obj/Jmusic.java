@@ -71,7 +71,7 @@ public class Jmusic {
 	 * Variables estaticas
 	 * 
 	 * @param listaRepresentante, arraylist de Representantes
-	 * @param entrada, para leer excepciones
+	 * @param entrada,            para leer excepciones
 	 */
 	static Scanner sc = new Scanner(System.in);
 
@@ -105,8 +105,8 @@ public class Jmusic {
 		 * Agregar Discografia (CD)
 		 */
 		do {
-			System.out.println(
-					"\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
+			System.out
+					.println("\n====================\nDiscografia\n====================\n1. Agregar Disco \n2. Salir");
 			boolean b = true;
 			do {
 				try {
@@ -114,7 +114,7 @@ public class Jmusic {
 					b = false;
 				} catch (Exception Ex) {
 					b = true;
-					System.out.println ("Por favor introduzca un caracter numerico");
+					System.out.println("Por favor introduzca un caracter numerico");
 					sc.nextLine();
 				}
 			} while (b);
@@ -233,16 +233,17 @@ public class Jmusic {
 				System.out.println("Introduzca la ID de la banda deseada para ver su discografia");
 				int id = entrada.controlaInt();
 				// Busca el posible objeto
-				/*	
-				for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
-					if (listaRepresentante.get(i).getId() == id) {
-						encontrado = listaRepresentante.get(i);
-					} 
-					
-				}*/
-				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
+				/*
+				 * for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+				 * if (listaRepresentante.get(i).getId() == id) { encontrado =
+				 * listaRepresentante.get(i); }
+				 * 
+				 * }
+				 */
+				Representante encontrado = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst()
+						.orElse(new Representante());
 				// Imprime el resultado de la busqueda
-				if (encontrado.getNombre()==null) {
+				if (encontrado.getNombre() == null) {
 					System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
 					j++;
 				} else {
@@ -255,183 +256,292 @@ public class Jmusic {
 						}
 					}
 				}
-				
+
 			} while (j > 0);
 		}
 	}
 
 	public static void modificarDatos() throws IOException {
-		
+
 		int opcion = 0;
-	do {
-		System.out.println(
-				"\n====================\nMenu Modificar\n====================\n1. Editar Representante \n2. Editar Grupo \n3. Salir");
-		boolean b = true;
 		do {
-			try {
-				opcion = sc.nextInt();
-				b = false;
-			} catch (Exception Ex) {
-				b = true;
-				System.out.println ("Por favor introduzca un caracter numerico");
-				sc.nextLine();
-			}
-		} while (b);
-		sc.nextLine();
-		switch (opcion) {
-		case 1:
-			int j = 0;
-			Representante temp = new Representante();
-			if (listaRepresentante.size() == 0) {
-				System.out.println("No existen Datos Almacenados.");
-			} else {
-				do {
-					j = 0;
-					System.out.println("Por favor Introduzca la ID del representante para Modificar sus datos");
-					listarRepreresumido();
-					int id = entrada.controlaInt();
-					/*
-					 * for (int i = 0; i < listaRepresentante.size(); i++) { if (id ==
-					 * listaRepresentante.get(i).getId()) { temp = listaRepresentante.get(i); } }
-					 */
+			System.out.println(
+					"\n====================\nMenu Modificar\n====================\n1. Editar Representante \n2. Editar Grupo \n3. Editar Discografia \n4. Salir");
+			boolean b = true;
+			do {
+				try {
+					opcion = sc.nextInt();
+					b = false;
+				} catch (Exception Ex) {
+					b = true;
+					System.out.println("Por favor introduzca un caracter numerico");
+					sc.nextLine();
+				}
+			} while (b);
+			sc.nextLine();
+			switch (opcion) {
+			case 1:
+				int j = 0;
+				Representante temp = new Representante();
+				if (listaRepresentante.size() == 0) {
+					System.out.println("No existen Datos Almacenados.");
+				} else {
+					do {
+						j = 0;
+						System.out.println("Por favor Introduzca la ID del representante para Modificar sus datos");
+						listarRepreresumido();
+						int id = entrada.controlaInt();
+						/*
+						 * for (int i = 0; i < listaRepresentante.size(); i++) { if (id ==
+						 * listaRepresentante.get(i).getId()) { temp = listaRepresentante.get(i); } }
+						 */
 
-					temp = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst().orElse(new Representante());
+						temp = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst()
+								.orElse(new Representante());
 
-					if (temp.getNombre() != null) {
-						int opcion6 = 0;
-						do {
-							System.out.println(
-									"\n====================\nRepresentante\n====================\n1. Cambiar Nombre \n2. Cambiar Apellido \n3. Cambiar Edad \n4. Cambiar Sueldo \n5. Salir");
-							boolean f = true;
+						if (temp.getNombre() != null) {
+							int opcion6 = 0;
 							do {
-								try {
-									opcion6 = sc.nextInt();
-									f = false;
-								} catch (Exception Ex) {
-									f = true;
-									System.out.println ("Por favor introduzca un caracter numerico");
-									sc.nextLine();
+								System.out.println(
+										"\n====================\nRepresentante\n====================\n1. Cambiar Nombre \n2. Cambiar Apellido \n3. Cambiar Edad \n4. Cambiar Sueldo \n5. Salir");
+								boolean f = true;
+								do {
+									try {
+										opcion6 = sc.nextInt();
+										f = false;
+									} catch (Exception Ex) {
+										f = true;
+										System.out.println("Por favor introduzca un caracter numerico");
+										sc.nextLine();
+									}
+								} while (f);
+								sc.nextLine();
+								switch (opcion6) {
+
+								case 1:
+									System.out.println("Por favor, introduzca el nuevo Nombre del Representante");
+									temp.setNombre(sc.nextLine());
+									break;
+								case 2:
+									System.out.println("Por favor, introduzca el nuevo Apellido del Representante");
+									temp.setApellido(sc.nextLine());
+									break;
+								case 3:
+									System.out.println("Por favor, introduzca la nueva Edad del Representante");
+									temp.setEdad(entrada.controlaInt());
+									break;
+								case 4:
+									System.out.println("Por favor, introduzca el nuevo Sueldo del Representante");
+									temp.setSueldo(entrada.controlaFloat());
+									break;
+								case 5:
+									System.out.println("Guardando en la base de datos...\n\nGuardado");
+									break;
+
+								default:
+									System.out.println("Por favor seleccione una opcion correcta");
+									break;
 								}
-							} while (f);
-							sc.nextLine();
-							switch (opcion6) {
-							
-							case 1:
-								System.out.println("Por favor, introduzca el nuevo Nombre del Representante");
-								temp.setNombre(sc.nextLine());
-								break;
-							case 2:
-								System.out.println("Por favor, introduzca el nuevo Apellido del Representante");
-								temp.setApellido(sc.nextLine());
-								break;
-							case 3:
-								System.out.println("Por favor, introduzca la nueva Edad del Representante");
-								temp.setEdad(entrada.controlaInt());
-								break;
-							case 4:
-								System.out.println("Por favor, introduzca el nuevo Sueldo del Representante");
-								temp.setSueldo(entrada.controlaFloat());
-								break;
-							case 5:
-								System.out.println("Guardando en la base de datos...\n\nGuardado");
-								break;
 
-							default:
-								System.out.println("Por favor seleccione una opcion correcta");
-								break;
-							}
+							} while (opcion6 != 5);
 
-						} while (opcion6 != 5);
-						
-					} else {
-						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
-						j++;
-					}
-				} while (j > 0);
-			}
-		
-			break;
-		case 2:
-			
-			int k = 0;
-			if (listaRepresentante.isEmpty()) {
-				System.out.println("No existen Datos almacenados");
-			} else {
-				do {
-					k = 0;
+						} else {
+							System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+							j++;
+						}
+					} while (j > 0);
+				}
 
-					for (int i = 0; i < listaRepresentante.size(); i++) {
-						System.out.println((i + 1) + ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre()
-								+ " cuya ID es " + listaRepresentante.get(i).getId() + "\n");
-					}
-					System.out.println("Introduzca la ID de la banda deseada para modificar sus datos");
-					int id = entrada.controlaInt();
-					Representante encontrado = listaRepresentante.stream().filter(r -> r.getId()==id).findFirst().orElse(new Representante());
-				
-					/*for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
-						if (listaRepresentante.get(i).getId() == id) {
-							encontrado = listaRepresentante.get(i);
-						} 
-						
-					}*/
-					
-					// Imprime el resultado de la busqueda
-					if (encontrado.getNombre()==null) {
-						System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
-						k++;
-					} else {
-						int opcion2 = 0;
-						do {
+				break;
+			case 2:
+
+				int k = 0;
+				if (listaRepresentante.isEmpty()) {
+					System.out.println("No existen Datos almacenados");
+				} else {
+					do {
+						k = 0;
+
+						for (int i = 0; i < listaRepresentante.size(); i++) {
 							System.out.println(
-									"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Pais \n3. Salir");
-							boolean d = true;
+									(i + 1) + ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre()
+											+ " cuya ID es " + listaRepresentante.get(i).getId() + "\n");
+						}
+						System.out.println("Introduzca la ID de la banda deseada para modificar sus datos");
+						int id = entrada.controlaInt();
+						Representante encontrado = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst()
+								.orElse(new Representante());
+
+						/*
+						 * for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+						 * if (listaRepresentante.get(i).getId() == id) { encontrado =
+						 * listaRepresentante.get(i); }
+						 * 
+						 * }
+						 */
+
+						// Imprime el resultado de la busqueda
+						if (encontrado.getNombre() == null) {
+							System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+							k++;
+						} else {
+							int opcion2 = 0;
 							do {
-								try {
-									opcion2 = sc.nextInt();
-									d = false;
-								} catch (Exception Ex) {
-									d = true;
-									System.out.println ("Por favor introduzca un caracter numerico");
-									sc.nextLine();
+								System.out.println(
+										"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Pais \n3. Salir");
+								boolean d = true;
+								do {
+									try {
+										opcion2 = sc.nextInt();
+										d = false;
+									} catch (Exception Ex) {
+										d = true;
+										System.out.println("Por favor introduzca un caracter numerico");
+										sc.nextLine();
+									}
+								} while (d);
+								sc.nextLine();
+								switch (opcion2) {
+								case 1:
+									System.out.println("Por favor, introduzca el nuevo nombre de la Banda Musical");
+									encontrado.getGrupo().setNombre(sc.nextLine());
+									break;
+								case 2:
+									System.out.println("Por favor, introduzca el nuevo Pais de la Banda Musical");
+									encontrado.getGrupo().setPais(sc.nextLine());
+									break;
+								case 3:
+									System.out.println("Guardando en la base de datos...\n\nGuardado");
+									break;
+
+								default:
+									System.out.println("Por favor seleccione una opcion correcta");
+									break;
 								}
-							} while (d);
-							sc.nextLine();
-							switch (opcion2) {
-							case 1:
-								System.out.println("Por favor, introduzca el nuevo nombre de la Banda Musical");
-								encontrado.getGrupo().setNombre(sc.nextLine());
-								break;
-							case 2:
-								System.out.println("Por favor, introduzca el nuevo Pais de la Banda Musical");
-								encontrado.getGrupo().setPais(sc.nextLine());
-								break;
-							case 3:
-								System.out.println("Guardando en la base de datos...\n\nGuardado");
-								break;
 
-							default:
-								System.out.println("Por favor seleccione una opcion correcta");
-								break;
+							} while (opcion2 != 3);
+
+						}
+
+					} while (k > 0);
+				}
+
+				break;
+			case 3:
+				int z = 0;
+				if (listaRepresentante.isEmpty()) {
+					System.out.println("No existen Datos almacenados");
+				} else {
+					do {
+						z = 0;
+
+						for (int i = 0; i < listaRepresentante.size(); i++) {
+							System.out.println(
+									(i + 1) + ". Banda Musical: " + listaRepresentante.get(i).getGrupo().getNombre()
+											+ " cuya ID es " + listaRepresentante.get(i).getId() + "\n");
+						}
+						System.out.println("Introduzca la ID de la banda para modificar su discografia");
+						int id = entrada.controlaInt();
+						Representante encontrado = listaRepresentante.stream().filter(r -> r.getId() == id).findFirst()
+								.orElse(new Representante());
+
+						/*
+						 * for (int i = 0; i < listaRepresentante.size() && encontrado == null; i++) {
+						 * if (listaRepresentante.get(i).getId() == id) { encontrado =
+						 * listaRepresentante.get(i); }
+						 * 
+						 * }
+						 */
+
+						// Imprime el resultado de la busqueda
+						if (encontrado.getNombre() == null) {
+							System.out.println("El ID introducido no es correcto por favor introduzca un ID valido");
+							z++;
+						} else {
+
+							int opcion8 = 0;
+							for (Cd cd : encontrado.getGrupo().getListaCd()) {
+								System.out.println(cd.toString());
 							}
+							do {
+								System.out.println(
+										"\n====================\nBanda Musical\n====================\n1. Cambiar Nombre \n2. Cambiar Fecha \n3. Salir");
+								boolean x = true;
+								do {
+									try {
+										opcion8 = sc.nextInt();
+										x = false;
+									} catch (Exception Ex) {
+										x = true;
+										System.out.println("Por favor introduzca un caracter numerico");
+										sc.nextLine();
+									}
+								} while (x);
+								sc.nextLine();
+								switch (opcion8) {
 
-						} while (opcion2 != 3);
-						
-					}
-					
-				} while (k > 0);
+								case 1:
+									System.out.println("Por favor, escriba el nombre del CD que desea cambiar");
+									String nombre = sc.nextLine();
+
+									if (encontrado.getGrupo().encontrarCD(nombre) == true) {
+										System.out.println("Por favor, escriba el nuevo nombre del CD");
+										String nuevonombre = sc.nextLine();
+										encontrado.getGrupo().cambiarnombreCd(nombre, nuevonombre);
+									} else {
+										System.out.println("El nombre del CD introducido no es valido");
+
+									}
+									break;
+								case 2:
+									// System.out.println("Por favor, introduzca el nuevo Año del CD");
+									System.out.println("Por favor, escriba el nombre del CD que desea cambiar");
+									String nombre2 = sc.nextLine();
+
+									if (encontrado.getGrupo().encontrarCD(nombre2) == true) {
+										int anodisco = 0, dia = 0, mes = 0;
+										System.out.println("Por favor, introduzca el año de publicacion del disco");
+										anodisco = entrada.controlaInt();
+										do {
+											System.out.println(
+													"Por favor, introduzca el numero de mes de la publicacion del disco");
+											mes = entrada.controlaInt();
+										} while (mes < 1 || mes > 12);
+										dia = (int) (Math.random() * 10) + 1;
+										encontrado.getGrupo().cambiaranioCd(nombre2, anodisco, mes, dia);
+									} else {
+										System.out.println("El nombre del CD introducido no es valido");
+
+									}
+
+									break;
+								case 3:
+									System.out.println("Guardando en la base de datos...\n\nGuardado");
+									break;
+
+								default:
+									System.out.println("Por favor seleccione una opcion correcta");
+									break;
+								}
+
+							} while (opcion8 != 3);
+
+						}
+
+					} while (z > 0);
+				}
+				break;
+			case 4:
+				System.out.println("Guardando en la base de datos...\n\nGuardado");
+				break;
+
+			default:
+				System.out.println("Por favor seleccione una opcion correcta");
+				break;
 			}
-			
-			break;
-		case 3:
-			System.out.println("Guardando en la base de datos...\n\nGuardado");
-			break;
 
-		default:
-			System.out.println("Por favor seleccione una opcion correcta");
-			break;
-		}
+		} while (opcion != 4);
 
-	} while (opcion != 3);
-	
-}
+	}
+
 }

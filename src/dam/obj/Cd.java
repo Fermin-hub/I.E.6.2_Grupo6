@@ -48,6 +48,11 @@ public class Cd {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+	
+	public void modificarfecha(int anio,int mes, int dia) {
+		this.date = LocalDate.of(anio, mes, dia);
+		
+	}
 
 	/**
 	 * toString

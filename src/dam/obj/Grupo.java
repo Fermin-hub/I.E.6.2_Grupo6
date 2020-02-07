@@ -25,6 +25,10 @@ public class Grupo {
 		this.listaCd = cd;
 	}
 
+	public Grupo() {
+		
+	}
+
 	/**
 	 * Getters y Setters
 	 */
@@ -56,6 +60,45 @@ public class Grupo {
 	public void setListaCd(List<Cd> listaCd) {
 		this.listaCd = listaCd;
 	}
+	
+	/**
+	 * Metodo para encontrar un CD especifico.
+	 * @param nombre
+	 * @return
+	 */
+	public boolean encontrarCD(String nombre) {
+		int h=0;
+		for (Cd cd : listaCd) {
+			if (cd.getNombre().equals(nombre)) {
+				h++;
+			}
+			
+		}
+		if (h>0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
+	public void cambiarnombreCd(String nombre, String nuevonombre) {
+	 for (Cd cd : listaCd) {
+		if (cd.getNombre().equals(nombre)) {
+			cd.setNombre(nuevonombre);
+			
+		}
+	 }
+	}
+	
+	public void cambiaranioCd(String nombre, int nuevoanio, int mes , int dia) {
+		 for (Cd cd : listaCd) {
+			if (cd.getNombre().equals(nombre)) {
+				cd.modificarfecha(nuevoanio, mes, dia);
+				
+			}
+		 }
+		}
 
 	/**
 	 * toString
