@@ -273,11 +273,11 @@ public class Jmusic {
 		listarRepreresumido();
 		int id = entrada.controlaInt();
 
-		System.out.println(
+		System.out.println( //Menu Modificar Datos
 				"\n====================\nModificacion\n====================\n1. Modificar Representante \n2. Modificar Grupo \n3. Modificar Discografia \n0. Salir");
 		int opcion = entrada.controlaInt();
 		switch (opcion) {
-		case 1:
+		case 1: //Modificar Representante
 			System.out.println(
 					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Apellido \n3. Modificar Sueldo \n4. Modificar Edad\n0. Salir");
 			int opcion2 = entrada.controlaInt();
@@ -315,7 +315,7 @@ public class Jmusic {
 			default:
 			}
 			break;
-		case 2:
+		case 2: //Modificar grupo
 			System.out.println(
 					"\n====================\nModificacion\n====================\n1. Modificar Nombre \n2. Modificar Pais \n0. Salir");
 			int opcion3 = entrada.controlaInt();
@@ -345,7 +345,7 @@ public class Jmusic {
 				break;
 			}
 			break;
-		case 3:
+		case 3: //Modificar discografia
 			for (int i = 0; i < listaRepresentante.size(); i++) {
 				if (listaRepresentante.get(i).getId() == id) {
 					System.out.print(i + 1);
